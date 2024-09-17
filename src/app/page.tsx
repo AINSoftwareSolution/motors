@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "./utilis/Images";
+import { CarBrands } from "./utilis/data";
 
 export default function Home() {
   return (
@@ -14,8 +15,8 @@ export default function Home() {
                   <h1 className="font-sans font-light text-5x lg:text-7xl leading-none text-muted-800 dark:text-white">
                     Find your beauty
                   </h1>
-                  <p className="font-sans text-lg text-muted-500 dark:text-white max-w-xl mx-auto mt-2 mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ex ea difficultate illae fallaciloquae, ut ait 
+                  <p className="font-sans text-lg text-muted-500 dark:text-white max-w-xl mx-auto my-4 mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ex ea difficultate illae fallaciloquae, ut ait
                     adipiscing elit.
                   </p>
                   <div className="flex flex-col md:flex-row items-center gap-2">
@@ -41,7 +42,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Column for Hero Image */}
               <div className="relative col-span-7">
                 {/* Uncomment the following line to add a Hero Image */}
@@ -62,10 +63,10 @@ export default function Home() {
                 md:flex items-center justify-center gap-x-6 text-muted-500
                 dark:text-muted-100/50"
             >
-              {[...Array(5)].map((_, index) => (
+              {CarBrands.map((brand, index) => (
                 <div key={index} className="flex-1">
                   <div className="flex items-center justify-center px-4">
-                    {/* Add content for logos here */}
+                    <Image src={brand.src} alt={brand.alt}  className="brand-img" style={{}}/>
                   </div>
                 </div>
               ))}
