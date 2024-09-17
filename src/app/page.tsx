@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Hero } from "./utilis/Images";
 import { CarBrands } from "./utilis/data";
+import  InventoryList from "./component/InventoryList";
+import { OurBrand } from "./component";
 
 export default function Home() {
   return (
@@ -74,6 +76,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+     <InventoryList />
+     <OurBrand />
     </main>
   );
 }
