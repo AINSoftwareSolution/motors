@@ -15,5 +15,11 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+.custom-icon-size {
+  font-size: 0.50rem; 
+}
 
+.brand-img {
+  object-fit: contain;
+}
 
