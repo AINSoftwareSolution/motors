@@ -4,6 +4,7 @@ import { Hero } from "./utilis/Images";
 import { CarBrands } from "./utilis/data";
 import  InventoryList from "./component/InventoryList";
 import { OurBrand } from "./component";
+import About from "./component/About"
 
 export default function Home() {
   return (
@@ -76,6 +77,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <About />
      <InventoryList />
      <OurBrand />
     </main>
