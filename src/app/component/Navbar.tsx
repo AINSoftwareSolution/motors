@@ -1,9 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
     const [darkMode, setDarkMode] = useState(true);
+    const path = usePathname()
 
     useEffect(() => {
         // Check the user's preferred theme mode or the saved theme mode
@@ -26,7 +28,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="bg-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className={`bg-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 
+        dark:border-gray-600`}>
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <Link href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
@@ -34,7 +37,7 @@ const Navbar = () => {
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                     {/* Light/Dark Mode Toggle Icon */}
                     <button onClick={toggleDarkMode} className="text-gray-700 dark:text-gray-300 focus:outline-none">
-                        {darkMode ? ( "light") : ("Dark")}
+                        {darkMode ? ("light") : ("Dark")}
                     </button>
                     <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>
