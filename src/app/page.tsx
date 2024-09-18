@@ -5,6 +5,9 @@ import { CarBrands } from "./utilis/data";
 import  InventoryList from "./component/InventoryList";
 import { OurBrand } from "./component";
 import About from "./component/About"
+import BuyCell from  "./component/BuyCell"
+import Services from "./component/services"
+
 
 export default function Home() {
   return (
@@ -80,6 +83,8 @@ export default function Home() {
       <About />
      <InventoryList />
      <OurBrand />
+     <BuyCell />
+     <Services />
     </main>
   );
 }

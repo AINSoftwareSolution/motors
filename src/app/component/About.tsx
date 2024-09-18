@@ -6,7 +6,8 @@ import { aboutData } from "../utilis/data";
 
 const About = () => {
   return (
-    <div className="container mx-auto py-8 px-4 md:px-6 lg:px-12 bg-gray-100 dark:bg-gray-900 overflow-hidden">
+    <div className=" bg-gray-100 dark:bg-gray-900 overflow-hidden">
+    <div className="container mx-auto py-8 px-4 md:px-6 lg:px-12 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <div className="flex justify-center items-center">
           <Image
@@ -41,6 +42,7 @@ const About = () => {
           
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
