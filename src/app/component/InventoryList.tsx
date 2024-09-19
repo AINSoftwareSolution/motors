@@ -20,14 +20,14 @@ const InventoryList = () => {
 
 
   return (
-    <div>
-      <div className="container mx-auto p-4 pt-6 md:p-6 lg:px-12 text-center bg-white dark:bg-gray-900 overflow-hidden">
-        <h2 className="text-black dark:text-white text-4xl font-bold mt-5">Inventory</h2>
-        <p className="mb-6 mt-4 text-gray-800 dark:text-gray-300">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-
-        <div className="mx-auto p-4 pt-6 md:p-6 lg:p-12 bg-white dark:bg-gray-900 overflow-hidden">
+    <div className=" bg-white dark:bg-gray-900 overflow-hidden">
+       <div className="container mx-auto p-4 pt-6 md:p-6 lg:px-12 mt-4 mb-4 text-center">
+      <h2 className="text-black dark:text-white text-4xl font-bold mt-5">Inventory</h2>
+      <p className="mb-6 mt-4 text-gray-800 dark:text-gray-300">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      </p>
+     
+      <div className="mx-auto p-4 pt-6 md:p-6 lg:p-12 bg-white dark:bg-gray-900 overflow-hidden">
 
           <ul className="grid list-none grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-hidden">
             {inventoryItems.map((item, index) => (
@@ -57,22 +57,16 @@ const InventoryList = () => {
                   <div className="ribbon_3 absolute top-0 right-0 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-bl-lg">
                     <span>Featured</span>
                   </div>
-                  <Link href="detail.html">
+                  <Link href="#">
                     <Image
                       src={item.imgSrc}
                       alt=""
-                      className="w-full h-40 object-cover rounded-t-lg "
+                      className="w-full h-auto object-cover rounded-lg "
                     />
                   </Link>
                 </div>
                 <div className="innerad p-4 text-center">
-                  <a href="/vehicle.html"
-                    className="relative font-sans font-normal inline-flex items-center 
-                justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 
-                hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 
-                dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 
-                text-sm tw-accessibility transition-all duration-300"> View Details</a>
-
+                <Link href="/vehicle.html" className="relative font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm tw-accessibility transition-all duration-300"> View Details</Link>
                 </div>
               </li>
             ))}
