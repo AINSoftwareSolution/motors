@@ -1,5 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { services } from '../utilis/data';
 
 const Services = () => {
@@ -21,7 +20,7 @@ const Services = () => {
                 {service.title}
               </h3>
               {/* Adjust font size directly using Tailwind classes */}
-              <FontAwesomeIcon icon={service.icon} className="text-yellow-500 mb-4 custom-icon-size" />
+              {/* <FontAwesomeIcon icon={service.icon} className="text-yellow-500 mb-4 custom-icon-size" /> */}
               <p className="text-gray-600">{service.description}</p>
               <span className="absolute bottom-0 left-0 w-16 h-1 bg-red-500 mt-4"></span>
             </div>

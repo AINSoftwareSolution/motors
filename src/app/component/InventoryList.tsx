@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image  from "next/image";
+import Image from "next/image";
 
-import { Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8,} from "../utilis/Images";
+import { Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, } from "../utilis/Images";
 
 const InventoryList = () => {
   const inventoryItems: string | any[] = [
@@ -18,7 +18,7 @@ const InventoryList = () => {
     { id: 8, title: "Car Name 2016", price: "$69,900", location: "Atlanta, GA", imgSrc: Image8 },
   ];
 
- 
+
   return (
     <div className=" bg-white dark:bg-gray-900 overflow-hidden">
        <div className="container mx-auto p-4 pt-6 md:p-6 lg:px-12 mt-4 mb-4 text-center">
@@ -49,7 +49,7 @@ const InventoryList = () => {
                     <i
                       className="fa fa-map-marker text-red-500 mr-1"
                       aria-hidden="true"
-                    ></i>{" "}
+                    ></i>
                     {item.location}
                   </div>
                 </div>
@@ -67,15 +67,14 @@ const InventoryList = () => {
                 </div>
                 <div className="innerad p-4 text-center">
                 <Link href="/vehicle.html" className="relative font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full space-x-1 bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm tw-accessibility transition-all duration-300"> View Details</Link>
-
                 </div>
               </li>
             ))}
           </ul>
-          </div>
-       </div>
-       </div>
-    
+        </div>
+      </div>
+    </div>
+
   );
 };
 
