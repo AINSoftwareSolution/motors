@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { AboutImg } from "../utilis/Images";
 import { aboutData } from "../utilis/data";
+import Button from "./Button";
 
 const About = () => {
   return (
@@ -33,12 +34,7 @@ const About = () => {
             </div>
           ))}
           <div className="flex space-x-4 mt-6">
-            <Link
-              className="bg-blue-500 p-3 rounded-full transition hover:bg-red-500"
-              href="#"
-            >
-             <span className="text-lg dark:text-white"> Learn More </span> 
-            </Link>
+          <Button title={"Learn More "} link={"/"} />
           
           </div>
         </div>
