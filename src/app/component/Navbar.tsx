@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { CgMoon, CgSun } from "react-icons/cg";
 import { LogoImg } from "../utilis/Images/";
 import { usePathname } from "next/navigation";
 
@@ -53,7 +54,7 @@ const Navbar = () => {
             onClick={toggleDarkMode}
             className="text-gray-700 dark:text-gray-300 focus:outline-none"
           >
-            {darkMode ? "light" : "Dark"}
+            {darkMode ? <CgSun  fontSize={'2rem'}/> : <CgMoon  fontSize={'2rem'}/>}
           </button>
           <button
             data-collapse-toggle="navbar-sticky"
@@ -90,7 +91,7 @@ const Navbar = () => {
           >
             <li>
               <Link
-                href="#"
+                href="/"
                 className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                 aria-current="page"
               >
@@ -108,7 +109,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/services"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent 
                             md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
@@ -117,7 +118,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent 
                             md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
