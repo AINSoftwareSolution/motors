@@ -1,5 +1,5 @@
-import { connectMongoDB } from "../../../lib/connect";
-import CarModel from "../../../models/carModel";
+import { connectMongoDB } from "../../../../lib/connect";
+import CarModel from "../../../../models/carModel";
 import { NextResponse } from "next/server";
 
 // GET: Fetch car listings by make
