@@ -4,7 +4,7 @@ import OurBrand from "./OurBrand";
 import Button from "./Button";
 import InventoryCard from "./InventoryCard";
 import About from "./About";
-import  Footer from "./Footer";
+import Footer from "./Footer";
 
 
 

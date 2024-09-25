@@ -1,3 +1,4 @@
+import LogoImg  from './logo.jpeg';
 import Hero from './hero.png';
 import Audi from './audi.svg';
 import BMW from './bmw.svg';
@@ -33,5 +34,6 @@ import Image6 from './2.webp';
 import Image7 from './3.webp';
 import Image8 from './1.webp';
 
+export {LogoImg};
 export { Hero, AboutImg, CellImg, BuyImg, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8 };
 export { Audi, BMW, Hyundai,LandRover,Mercedes, Skoda,Toyota,Nissan, Mahindra, Kia, Honda, Tata, Renault, MG, Suzuki };

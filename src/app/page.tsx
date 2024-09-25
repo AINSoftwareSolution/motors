@@ -4,9 +4,7 @@ import Image from "next/image";
 import { Hero } from "./utilis/Images";
 import { CarBrands, infoContent, services } from "./utilis/data";
 import { OurBrand, About, Button,InventoryList } from "./component";
-import Contact from "@/contact/page";
-
-    
+ 
 
 export default function Home() {
   return (
@@ -129,7 +127,6 @@ export default function Home() {
         </div>
       </div>
     </div>
-     <Contact />
     </main>
   );
 }
