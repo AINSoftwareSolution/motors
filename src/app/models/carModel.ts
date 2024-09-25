@@ -1,7 +1,12 @@
 // models/carModel.js
 import mongoose from 'mongoose';
 
+const generateCarId = () => {
+  return Math.random().toString(36).slice(2, 11); // Generates a random string of 9 characters
+};
+
 const carSchema = new mongoose.Schema({
+  carId: { type: String, default: generateCarId }, 
   make: { type: String, required: true },
   model: { type: String, required: true },
   year: { type: Number, required: true },
