@@ -12,9 +12,9 @@ const Button: React.FC<ButtonProps> = ({ title, link }) => {
         <Link href={link} className="box-border relative z-30 inline-flex items-center justify-center w-auto px-8 py-3 
             overflow-hidden font-bold text-white transition-all duration-300 rounded-md cursor-pointer 
             group  ease 
-            focus:outline-none hover:shadow-[0_4px_10px_rgba(140,72,77,0.4),0_4px_10px_rgba(99,56,84,0.3),0_4px_10px_rgba(46,23,95,0.3)]"
+            focus:outline-none hover:shadow-[0_4px_10px_rgba(48,98,84,0.4),0_4px_10px_rgba(38,80,64,0.3),0_4px_10px_rgba(31,68,54,0.3)]"
             style={{ 
-                background: 'linear-gradient(180deg, #8c484d 0%, #633854 40%, #2e175f 75%, #2e1761 100%)',
+                background: 'linear-gradient(180deg, #306254 0%, #265040 40%, #1f4436 75%, #1c3d31 100%)',
             }}>
             <span className="absolute bottom-0 right-0 w-8 h-20 -mb-8 -mr-5 transition-all duration-300 ease-out 
                 transform rotate-45 translate-x-1 bg-white opacity-10 group-hover:translate-x-0"></span>

@@ -1,4 +1,4 @@
-import LogoImg  from './logo.jpeg';
+import LogoImg  from './logo.png';
 import Hero from './hero.png';
 import Audi from './audi.svg';
 import BMW from './bmw.svg';

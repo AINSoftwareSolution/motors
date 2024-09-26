@@ -14,12 +14,12 @@ export default function Home() {
         <div className="relative min-h-screen w-full max-w-7xl mx-auto flex items-center z-10">
           <div className="w-full px-4">
             <div className="grid grid-cols-12">
-              <div className="col-span-5 h-full flex items-center">
+              <div className="col-span-7 h-full flex items-center">
                 <div className="w-full">
                   <h1 className="font-sans font-light text-5x lg:text-7xl leading-none text-muted-800 dark:text-white">
-                    Find your beauty
+                    Elevate Your Drive, Elevate Your Lifestyle
                   </h1>
-                  <p className="font-sans text-lg text-muted-500 dark:text-white max-w-xl mx-auto my-4 mb-4">
+                  <p className="font-sans text-lg text-muted-500 dark:text-white  my-4 mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ex
                     ea difficultate illae fallaciloquae, ut ait adipiscing elit.
                   </p>
@@ -32,7 +32,7 @@ export default function Home() {
               </div>
 
               {/* Hero Image */}
-              <div className="relative col-span-7">
+              <div className="relative col-span-5">
                 <Image
                   className="relative max-w-xl mx-auto z-20"
                   src={Hero}

@@ -23,9 +23,9 @@ const CarDetails = () => {
   };
 
   return (
-    
-    <div className="bg-gray-100 pl-20 pt-16 mt-16">
-      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 ">
+    <div className="bg-gray-100 dark:bg-gray-900 overflow-hidden">
+    <div className="bg-gray-100 pl-20 pt-16 mt-16 bg-gray-100 dark:bg-gray-900 overflow-hidden">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 text-gray-900 dark:text-white">
         {/* Left Section - Car Image Carousel */}
         <div>
             <div className="flex flex-col items-center ">
@@ -112,8 +112,8 @@ const CarDetails = () => {
                     <div className="w-full md:w-3/4">
                       <div className="jobinfo">
                         <div className="flex flex-col md:flex-row">
-                          <div className="w-full md:w-2/3">
-                            <h3 className="text-lg font-semibold">
+                          <div className="w-full md:w-2/3 ">
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                               <Link href={ad.detailsUrl}>{ad.title}</Link>
                             </h3>
                             <div className="location text-gray-500 mt-2">
@@ -152,8 +152,8 @@ const CarDetails = () => {
                               Last Updated: {ad.lastUpdated}
                             </div>
                           </div>
-                          <div className="w-full md:w-1/3 text-right mt-4 md:mt-0">
-                            <div className="adprice text-2xl font-bold">
+                          <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 ">
+                            <div className="adprice text-2xl font-bold ">
                               {ad.price}
                             </div>
                             <div className="listbtn mt-4">
@@ -283,6 +283,7 @@ const CarDetails = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
     
   );
