@@ -7,6 +7,10 @@ import { TbMoneybag } from "react-icons/tb";
 import { AiFillInsurance } from "react-icons/ai";
 import { FaRoad } from "react-icons/fa";
 
+// Details of Cars
+import { CiClock2 } from "react-icons/ci";
+
+
 
 
 export const CarBrands = [
@@ -113,5 +117,106 @@ export const inventoryItems = [
   { id: 8, title: "Car Name 2016", price: "$69,900", location: "Atlanta, GA", imgSrc: Image8 },
 ];
 
+export const images = [
+  { src: Image1, alt: "" },
+  { src: Image1, alt: "" },
+  { src: Image1, alt: "" },
+  { src: Image1, alt: "" },
+  { src: Image1, alt: "" },
+];
+
+// features
+export const features = [
+  { id: 1, text: "Price", price: "$9000", time: "07:30PM", location: "Pune" },
+];
+
+/// carfeatures
+
+export const carFeatures = [
+  { text: "ABS" },
+  { text: "AM/FM Radio" },
+  { text: "Air Bags" },
+  { text: "Air Conditioning" },
+  { text: "Alloy Rims" },
+  { text: "CD Player" },
+  { text: "Cassette Player" },
+  { text: "Cruise Control" },
+  { text: "DVD Player" },
+  { text: "Immobilizer Key" },
+  { text: "Keyless Entry" },
+  { text: "Power Locks" },
+  { text: "Power Mirrors" },
+  { text: "Power Steering" },
+  { text: "Power Windows" },
+];
+
+// About this car 
+export const aboutcar = [
+  { text: 'Registered City', location: 'New York' },
+  { text: 'Color', location: 'Pearl White' },
+  { text: 'Assembly', location: 'Imported' },
+  { text: 'Engine Capacity', location: '1800 cc' },
+  { text: 'Body Type', location: 'Mini Van' },
+  { text: 'Last Updated', location: 'Aug 24, 2017' },
+  { text: 'Ad Ref #', location: '2043936' },
+  { text: 'Model', location: '2017' },
+  { text: 'Millage', location: '165,000 km' },
+  { text: 'Fuel', location: 'Petrol' },
+  { text: 'Transmission', location: 'Automatic' },
+];
+
+// Related ads
+
+export const relatedAds = [
+  {
+    title: "Sue gate F 1.0 for Sale",
+    year: 2014,
+    mileage: "38,000 km",
+    location: "New York",
+    price: "$456.00",
+    fuelType: "Petrol",
+    engine: "1300 cc",
+    transmission: "Automatic",
+    lastUpdated: "1 day ago",
+    imageSrc: "/images/cars/04.jpg", // Correct path for Next.js static images
+    detailsUrl: "/detail.html",
+  },
+  {
+    title: "Sue gate F 1.0 for Sale",
+    year: 2014,
+    mileage: "38,000 km",
+    location: "New York",
+    price: "$456.00",
+    fuelType: "Petrol",
+    engine: "1300 cc",
+    transmission: "Automatic",
+    lastUpdated: "1 day ago",
+    imageSrc: "/images/cars/05.jpg",
+    detailsUrl: "/detail.html",
+  },
+  {
+    title: "Sue gate F 1.0 for Sale",
+    year: 2014,
+    mileage: "38,000 km",
+    location: "New York",
+    price: "$456.00",
+    fuelType: "Petrol",
+    engine: "1300 cc",
+    transmission: "Automatic",
+    lastUpdated: "1 day ago",
+    imageSrc: "/images/cars/06.jpg",
+    detailsUrl: "/detail.html",
+  },
+];
+
+// stay safe 
+ export const staySafe = [
+    "Avoid deals that are too good to be true.",
+    "Deal with people in your area by meeting face to face to see the item.",
+    "Never provide your personal or banking information.",
+    "See our Safety tips regarding vehicle buying and selling.",
+    "How to spot scam ads?",
+    "How to protect yourself?"
+  ];
 
 
