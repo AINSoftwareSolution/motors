@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const About = () => {
   return (
-    <div className=" bg-gray-100 dark:bg-gray-900 overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 overflow-hidden">
     <div className="container mx-auto py-8 px-4 md:px-6 lg:px-12 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <div className="flex justify-center items-center">

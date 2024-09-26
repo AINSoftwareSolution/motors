@@ -17,7 +17,7 @@ const OurBrand = () => {
           {CarBrands.map((brand, index) => (
             <div
               key={index}
-              className="relative flex flex-col items-center justify-center group mt-7 mb-5 bg-white dark:bg-white p-4 rounded-md shadow-md transition-transform hover:scale-105"
+              className="relative flex flex-col items-center justify-center group mt-7 mb-5 bg-white p-4 rounded-md shadow-md transition-transform hover:scale-105"
             >
               <Link href={brand.link}>
                 <div className="relative flex items-center justify-center">
@@ -30,7 +30,7 @@ const OurBrand = () => {
                   />
                 </div>
               </Link>
-              <h3 className="mt-4 font-bold text-md sm:text-lg text-black dark:text-white">
+              <h3 className="mt-2 font-bold text-md sm:text-lg text-black">
                 {brand.name}
               </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">

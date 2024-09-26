@@ -13,7 +13,7 @@ import {
   images,
   relatedAds,
   staySafe,
-} from "../utilis/data";
+} from "../../utilis/data";
 
 const CarDetails = () => {
   // State to manage the currently displayed image

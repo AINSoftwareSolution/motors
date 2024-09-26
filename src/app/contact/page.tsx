@@ -4,6 +4,7 @@ import { MdAddIcCall } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import Link from "next/link";
+import { Button } from "../component";
 
 const Contact = () => {
   return (
@@ -14,13 +15,13 @@ const Contact = () => {
           subheading="Reach us easily by completing the form or finding our address"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      
+
           <div className="space-y-8 font-bold text-gray-900 dark:text-white">
-         
+
             <div className="flex space-x-4 font-bold text-gray-900 dark:text-white">
               <div className="text-3xl">
-              
-              <MdAddIcCall />
+
+                <MdAddIcCall />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-[#2e1760]">
@@ -31,7 +32,7 @@ const Contact = () => {
             </div>
             <div className="flex space-x-4 mb-3">
               <div className="text-3xl">
-              <FaLocationDot />
+                <FaLocationDot />
 
               </div>
               <div>
@@ -40,14 +41,14 @@ const Contact = () => {
                 </h2>
                 <p className="text-gray-700 font-semibold text-gray-900 dark:text-white mb-4">
                   Ambedkar Housing Society ,Golf Club Rd beside Ambedkar<br />
-                   Function Hall, Dr Ambedkar Co Oprative Society, Yerawada<br />
-                   Pune Maharashtra - 411006, Maharashtra India.
+                  Function Hall, Dr Ambedkar Co Oprative Society, Yerawada<br />
+                  Pune Maharashtra - 411006, Maharashtra India.
                 </p>
               </div>
             </div>
             <div className="flex space-x-4">
               <div className="text-3xl">
-              <MdOutlineMarkEmailRead />
+                <MdOutlineMarkEmailRead />
 
               </div>
               <div>
@@ -99,7 +100,7 @@ const Contact = () => {
               </div>
 
               <div className="flex space-x-4">
-          
+
                 <div className="relative w-1/2">
                   <label className="block mb-1 text-gray-700 text-gray-900 dark:text-white" >
                     Contact<span className="text-red-500 text-gray-900 dark:text-white">*</span>
@@ -139,16 +140,7 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                className="box-border relative inline-flex items-center justify-center px-8 py-3 font-bold text-white rounded-md transition-all duration-300 ease focus:outline-none hover:shadow-lg"
-                style={{
-                  background:
-                    "linear-gradient(180deg, #8c484d 0%, #633854 40%, #2e175f 75%, #2e1761 100%)",
-                }}
-              >
-                Submit
-              </button>
+              <Button type={'submit'} isButton={true} title={'Submit'} />
             </form>
           </div>
         </div>

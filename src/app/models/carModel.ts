@@ -1,22 +1,31 @@
 // models/carModel.js
 import mongoose from 'mongoose';
 
+// Helper function to generate a random alphanumeric ID
 const generateCarId = () => {
   return Math.random().toString(36).slice(2, 11); // Generates a random string of 9 characters
 };
 
 const carSchema = new mongoose.Schema({
-  carId: { type: String, default: generateCarId }, 
+  carId: { type: String, default: generateCarId }, // Randomly generated alphanumeric ID
   make: { type: String, required: true },
   model: { type: String, required: true },
   year: { type: Number, required: true },
   price: { type: Number, required: true },
   mileage: { type: Number, required: true },
-  sellerContact: { type: String, required: true },
-  description: { type: String },
-  color: { type: String },
-  transmission: { type: String },
-  fuelType: { type: String },
+  city: { type: String, required: true },          // Added city field
+  color: { type: String, required: true },         // Added color field
+  assembly: { type: String, required: true },      // Added assembly field (local/imported)
+  engineCapacity: { type: Number, required: true },// Added engine capacity field
+  bodyType: { type: String, required: true },      // Added body type field (SUV, Sedan, etc.)
+  lastUpdated: { type: Date, default: Date.now },  // Added last updated field, defaulting to current date
+  adsRef: { type: String, required: true },        // Added ad reference number
+  features: [{ type: String }],                    // Added array of features (e.g., ABS, airbags, etc.)
+  images: [{ type: String }],                      // Added array of image URLs
+  sellerContact: { type: String, required: true }, // Seller contact number
+  description: { type: String },                   // Optional description
+  transmission: { type: String },                  // Optional transmission type
+  fuelType: { type: String },                      // Optional fuel type (Petrol, Diesel, etc.)
 }, { timestamps: true });
 
 export default mongoose.models.Car || mongoose.model('Car', carSchema);
