@@ -2,9 +2,38 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 import {LogoImg} from "../utilis/Images"
+import { MdAddIcCall, MdOutlineMarkEmailRead } from 'react-icons/md'
+import { FaLocationDot } from 'react-icons/fa6'
 const Footer = () => {
     return (
      
+        // News Letter//
+        <div className="subscribe py-12 bg-gray-100 dark:bg-gray-900 overflow-hidden ">
+  <div className="mx-auto bg-gray-200 p-6 rounded text-center bg-gray-100 dark:bg-gray-900 overflow-hidden ">
+    <h6 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white ">Submit Newsletters</h6>
+    <p className="text-gray-600 mb-4 text-center">
+      Sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr <br /> sed diam nonumy sanctus est Lorem ipsum dolor sit amet.
+    </p>
+    <div className="flex justify-center mb-5">
+      <div className="w-full md:w-2/5 flex mb-5">
+        <input
+          type="text"
+          className="form-control w-full py-3 px-4 border border-gray-300 rounded-l"
+          placeholder="Enter Your Email"
+        />
+        <button
+          className="bg-green-900 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-r"
+          type="button"
+        >
+          Subscribe
+        </button>
+      </div>
+    </div>
+    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8 mb-5" />
+  </div>
+  
+{/* news letter end  */}
+
         <div className=" bg-slate-900 footer">
             <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-12">
                 <div className="md:flex md:justify-between">
@@ -13,9 +42,48 @@ const Footer = () => {
                         <Image
             src={LogoImg}
             className="w-28 h-auto object-contain"
-            alt="Daulat Cars Logo"
-          />                        </Link>
-                    </div>
+            alt="Daulat Cars Logo" /> 
+             </Link>
+             <div className="flex space-x-4 font-bold mt-4 text-gray-500 dark:text-gray-400 font-medium">
+              <div className="text-2xl text-green-900">
+              
+              <MdAddIcCall />
+              </div>
+              <div>
+                <p className="text-gray-500 font-bold text-gray-500 dark:text-gray-400 font-medium mb-4">+919764021786 / +917264021786</p>
+              </div>
+            </div>
+            <div className="flex space-x-4">
+              <div className="text-2xl text-green-900 mb-4">
+              <MdOutlineMarkEmailRead />
+
+              </div>
+              <div>
+                <p>
+                  <Link
+                    href="mailto:daulatcars@gmail.com"
+                    className="text-gray-500 font-bold text-gray-500 dark:text-gray-400 font-medium mb-4"
+                  >
+                    daulatcars@gmail.com
+                  </Link>
+                </p>
+              </div>
+            </div>
+            <div className="flex space-x-4 mb-3">
+              <div className="text-2xl text-green-900">
+              <FaLocationDot />
+
+              </div>
+              <div>
+                <p className="text-gray-500 font-bold text-gray-500 dark:text-gray-400 font-medium mb-4">
+                  Ambedkar Housing Society ,Golf Club Rd beside Ambedkar<br />
+                   Function Hall, Dr Ambedkar Co Oprative Society, Yerawada<br />
+                   Pune Maharashtra - 411006, Maharashtra India.
+                </p>
+              </div>
+            </div>
+
+                 </div>
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Link</h2>
@@ -61,7 +129,7 @@ const Footer = () => {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link href="#" className="hover:underline">Daulat Cars </Link>. All Rights Reserved.
+                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <Link href="#" className="hover:underline">Daulat Cars </Link>. All Rights Reserved.
                     </span>
                     <div className="flex mt-4 sm:justify-center sm:mt-0">
                         <Link href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
@@ -98,7 +166,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-  
+  </div>
 
     )
 }
