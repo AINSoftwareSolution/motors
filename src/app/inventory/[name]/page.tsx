@@ -23,9 +23,23 @@ const CarDetails = () => {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 overflow-hidden">
-    <div className="bg-gray-100 pl-20 pt-16 mt-16 bg-gray-100 dark:bg-gray-900 overflow-hidden">
-      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 text-gray-900 dark:text-white">
+    <>
+   <div className="pageTitle bg-green-900  py-8 mt-16 mb-6">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-wrap items-center justify-between">
+      {/* Title Section */}
+      <div className="w-full md:w-7/12 sm:w-6/12">
+        <h1 className="text-2xl font-bold text-gray-900">
+          Morcedas C180 Elegance 2008 Reg 2012
+        </h1>
+      </div>
+     </div>
+    </div>
+  </div>
+
+    <div className=" dark:bg-gray-900 overflow-hidden" id="inventoryCard">
+    <div className=" ml-20 pt-4 mt-4 dark:bg-gray-900 overflow-hidden">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 text-gray-900 dark:text-white">
         {/* Left Section - Car Image Carousel */}
         <div>
             <div className="flex flex-col items-center ">
@@ -92,7 +106,7 @@ const CarDetails = () => {
           </div>
 
           {/* Related ads */}
-          <div className="relatedJobs mt-10">
+          <div className="relatedJobs mt-10 mb-10">
             <h3 className="text-2xl font-semibold mb-4">Related Ads</h3>
             <ul className="space-y-3">
               {relatedAds.map((ad, index) => (
@@ -109,7 +123,7 @@ const CarDetails = () => {
                         />
                       </div>
                     </div>
-                    <div className="w-full md:w-3/4">
+                    <div className="w-full md:w-3/2">
                       <div className="jobinfo">
                         <div className="flex flex-col md:flex-row">
                           <div className="w-full md:w-2/3 ">
@@ -180,9 +194,9 @@ const CarDetails = () => {
         </div>
 
         {/* Right Section - Card with Features and Comments */}
-        <div>
-          <div className="bg-green-900 rounded-lg shadow-md p-4 w-80 mx-auto mb-5">
-            <h3 className="text-xl font-semibold mb-4 text-white text-center  ">
+        <div className=" w-90 mr-20">
+          <div className="bg-green-900 rounded-lg shadow-md p-6 w-90 mr-20 mx-auto mb-5">
+            <h3 className="text-xl font-semibold mb-4 text-white text-center">
               Car Details
             </h3>
             <ul className="space-y-6">
@@ -243,7 +257,7 @@ const CarDetails = () => {
           </div>
 
           {/* about car  */}
-          <div className="bg-green-900 rounded-lg shadow-md p-6 w-80 mx-auto mb-5">
+          <div className="bg-green-900 rounded-lg shadow-md p-6 w-90 mr-20 mx-auto mb-5">
             <h3 className="text-2xl font-semibold mb-4 text-white">
               About This Car
             </h3>
@@ -267,7 +281,7 @@ const CarDetails = () => {
           </div>
 
           {/* stay safe */}
-          <div className="bg-green-900 rounded-lg shadow-md p-6 w-80 mx-auto">
+          <div className="bg-green-900 rounded-lg shadow-md p-6 w-90 h-90 mr-20  mx-auto">
             <h3 className="text-2xl text-white font-bold mb-4 text-center">
               Stay Safe
             </h3>
@@ -285,6 +299,7 @@ const CarDetails = () => {
       </div>
     </div>
     </div>
+    </>
     
   );
 };

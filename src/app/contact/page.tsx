@@ -8,8 +8,8 @@ import { Button } from "../component";
 
 const Contact = () => {
   return (
-    <div className=" bg-gray-100 dark:bg-gray-900 overflow-hidden">
-      <div className="container mx-auto px-4 py-12 font-bold text-gray-900 dark:text-white mt-7" id="contact">
+    <div className=" bg-gray-100 dark:bg-gray-900 overflow-hidden mt-8 ">
+      <div className="container mx-auto px-4 py-16 font-bold text-gray-900 dark:text-white " id="contact">
         <Title
           heading="Contact us"
           subheading="Reach us easily by completing the form or finding our address"
@@ -24,7 +24,7 @@ const Contact = () => {
                 <MdAddIcCall />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-[#2e1760]">
+                <h2 className="text-2xl font-bold text-[#2e1760] text-gray-900 dark:text-white">
                   Call Anytime
                 </h2>
                 <p className="text-gray-700 font-bold text-gray-900 dark:text-white mb-4">+919764021786 / +917264021786</p>
@@ -36,7 +36,7 @@ const Contact = () => {
 
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-[#2e1760] ">
+                <h2 className="text-2xl font-bold text-[#2e1760]text-gray-900 dark:text-white ">
                   Location:
                 </h2>
                 <p className="text-gray-700 font-semibold text-gray-900 dark:text-white mb-4">
@@ -52,7 +52,7 @@ const Contact = () => {
 
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-[#2e1760]">
+                <h2 className="text-2xl font-bold text-[#2e1760] text-gray-900 dark:text-white">
                   Email Address:
                 </h2>
                 <p>
