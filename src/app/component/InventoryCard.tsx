@@ -5,7 +5,7 @@ import Image from 'next/image';
 const InventoryCard = ({ item }: { item: any }) => {
   return (
     <div className="relative flex flex-col items-center justify-center group bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md transition-transform hover:scale-105">
-      <Link href={`/car/${item.id}`}>
+      <Link href={`/inventory/${item.id}`}>
         <div className="relative w-full h-48 overflow-hidden rounded-md">
           <Image
             src={item.imgSrc}
@@ -31,7 +31,7 @@ const InventoryCard = ({ item }: { item: any }) => {
         </div>
       </div>
       <Link
-        href={`/car/${item.id}`}
+        href={`/inventory/${item.id}`}
         className="relative font-sans font-normal inline-flex items-center justify-center leading-5 no-underline w-full bg-gray-100 hover:bg-gray-800 text-gray-500 hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-100 h-10 px-5 py-3 text-sm transition-all duration-300"
       >
         View Details

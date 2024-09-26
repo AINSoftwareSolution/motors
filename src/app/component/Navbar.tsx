@@ -1,14 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
+
+import useLocation from "../hooks/useLocation";
 import { CgMoon, CgSun } from "react-icons/cg";
 import { LogoImg } from "../utilis/Images/";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [darkMode, setDarkMode] = useState(true);
-  const path = usePathname();
 
   useEffect(() => {
     // Check the user's preferred theme mode or the saved theme mode
@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <nav
       className={`bg-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 
-        dark:border-gray-600`}
+        dark:border-gray-600 ${useLocation() ? 'hidden' : ''}`}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
@@ -54,7 +54,7 @@ const Navbar = () => {
             onClick={toggleDarkMode}
             className="text-gray-700 dark:text-gray-300 focus:outline-none"
           >
-            {darkMode ? <CgSun  fontSize={'2rem'}/> : <CgMoon  fontSize={'2rem'}/>}
+            {darkMode ? <CgSun fontSize={'2rem'} /> : <CgMoon fontSize={'2rem'} />}
           </button>
           <button
             data-collapse-toggle="navbar-sticky"
