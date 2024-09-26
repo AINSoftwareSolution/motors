@@ -26,7 +26,7 @@ export default function Home() {
                   </p>
                   <div className="flex  md:flex-row justify-center md:justify-start items-center gap-4 mb-4">
                     <Button title={"New Cars"} link={"/"} />
-                    <Button title={"Inventory"} link={"/"} />
+                    <Button title={"Inventory"} link={"/#inventoryList"} />
                   </div>
                 </div>
               </div>
@@ -58,48 +58,50 @@ export default function Home() {
 
       {/* Buy Cell Section */}
       <div className="bg-white dark:bg-gray-900 overflow-hidden">
-        <div className="container mx-auto py-8 px-4 md:px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {infoContent.map((info) => (
-              <div
-                key={info.id}
-                className="relative h-64 md:h-80 flex justify-center items-center rounded-lg overflow-hidden hover:scale-105 hover:shadow-2xl"
-              >
-                <section
-                  className={`area-bg ${info.backgroundColor} bg-cover bg-center w-full h-full relative`}
-                  style={{ backgroundImage: info.backgroundImage }}
-                >
-                  <div className="area-bg__inner absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
-                    <h2 className="text-3xl font-bold">
-                      {info.title}
-                      <strong className="block text-4xl mt-2">
-                        {info.strongText}
-                      </strong>
-                    </h2>
-                    <Link
-                      className="btn bg-white text-gray-900 font-bold py-2 px-6 mt-4 rounded-lg hover:bg-red-500 transition"
-                      href={info.buttonLink}
-                    >
-                      {info.buttonText}
-                    </Link>
-                  </div>
-                </section>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+  <div className="container mx-auto py-8 px-2 md:px-2 lg:px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {infoContent.map((info, index) => (
+        <div
+          key={info.id}
+          className="relative h-64 md:h-80 flex justify-center items-center rounded-lg overflow-hidden hover:scale-105 hover:shadow-2xl"
+        >
+          <section
+            className={`area-bg ${info.backgroundColor} bg-cover bg-center w-full h-full relative`}
+            style={{ backgroundImage: info.backgroundImage }}
+          >
+            <div className="area-bg__inner absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+              <h2 className="text-3xl font-bold">
+                {info.title}
+                <strong className="block text-4xl mt-2">{info.strongText}</strong>
+              </h2>
 
-      <div className="bg-gray-200 dark:bg-gray-900 overflow-hidden">
-        <div className="container mx-auto py-8 px-4 md:px-6 lg:px-12">
+              {/* Display the button conditionally based on the index */}
+              <div className="mt-4">
+                {index === 0 ? (
+                  <Button title={"Search Your Car"} link={"/#inventoryList"} />
+                ) : (
+                  <Button title={"Let Us Know"} link={"/contact"} />
+                )}
+              </div>
+            </div>
+          </section>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+      
+      {/* Services section start */}
+      <div className="bg-gray-200 dark:bg-gray-900 overflow-hidden" id="services">
+        <div className="container mx-auto py-8 px-2 md:px-2 lg:px-4">
           <div className="text-center mb-8">
             <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
               Our Services
             </h2>
-            <div className="bg-red-500 h-1 w-32 mx-auto my-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-5">
             {services.map((service) => (
               <div
                 key={service.id}
@@ -112,7 +114,7 @@ export default function Home() {
                   {React.createElement(service.icon, { className: "text-6xl text-yellow-500" })}
                 </div>
                 <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
-                <span className="absolute bottom-0 left-0 w-16 h-1 bg-red-500 mt-4"></span>
+                <span className="absolute bottom-0 left-0 w-16 h-1 bg-green-900 mt-5 "></span>
               </div>
             ))}
           </div>

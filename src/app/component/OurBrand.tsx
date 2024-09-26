@@ -6,7 +6,7 @@ import { CarBrands } from "../utilis/data";
 const OurBrand = () => {
   return (
     <div className="bg-white dark:bg-gray-900 overflow-hidden">
-      <div className="container mx-auto p-4 pt-6 md:p-6 lg:px-12 mt-4 mb-4 text-center dark:bg-gray-900 overflow-hidden">
+      <div className="container mx-auto p-4 pt-6 md:p-6 lg:px-4 mt-4 mb-4 text-center dark:bg-gray-900 overflow-hidden">
         <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
           Vehicle Collections
         </h2>

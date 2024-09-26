@@ -3,12 +3,12 @@ import React from "react";
 import Image from "next/image";
 import { AboutImg } from "../utilis/Images";
 import { aboutData } from "../utilis/data";
-import Button from "./Button";
+
 
 const About = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 overflow-hidden">
-    <div className="container mx-auto py-8 px-4 md:px-6 lg:px-12 ">
+    <div className="bg-white dark:bg-gray-900 overflow-hidden" id="about">
+    <div className="container mx-auto py-8 px-2 md:px-2 lg:px-4 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <div className="flex justify-center items-center">
           <Image
@@ -33,10 +33,6 @@ const About = () => {
               ))}
             </div>
           ))}
-          <div className="flex space-x-4 mt-6">
-          <Button title={"Learn More "} link={"/"} />
-          
-          </div>
         </div>
       </div>
       </div>

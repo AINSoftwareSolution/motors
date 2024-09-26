@@ -7,6 +7,7 @@ import useLocation from '../hooks/useLocation'
 import { FaLocationDot } from 'react-icons/fa6'
 import { LogoImg } from "../utilis/Images"
 import { MdAddIcCall, MdOutlineMarkEmailRead } from 'react-icons/md'
+import Button from './Button';
 
 const Footer = () => {
   return (
@@ -23,12 +24,11 @@ const Footer = () => {
               className="form-control w-full py-3 px-4 border border-gray-300 rounded-l"
               placeholder="Enter Your Email"
             />
-            <button
-              className="bg-green-900 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-r"
-              type="button"
-            >
-              Subscribe
-            </button>
+
+                 <Button title={"Subscribe"} link={"/#"} />
+            
+              
+            
           </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
@@ -94,12 +94,11 @@ const Footer = () => {
                     <Link href="/#about" className="hover:underline">About</Link>
                   </li>
                   <li className="mb-4">
-                    <Link href="/#contact" className="hover:underline">Services</Link>
+                    <Link href="/#services" className="hover:underline">Services</Link>
                   </li>
                   <li>
-                    <Link href="/#contact" className="hover:underline">Contact</Link>
+                    <Link href="/contact" className="hover:underline">Contact</Link>
                   </li>
-
                 </ul>
               </div>
               <div>
