@@ -12,7 +12,7 @@ import Button from './Button';
 const Footer = () => {
   return (
     <div className={`subscribe bg-gray-900 overflow-hidden border-t border-gray-700 ${useLocation() ? 'hidden' : ''}` }>
-      <div className="mx-auto px-6 rounded text-center overflow-hidden ">
+      <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4 rounded text-center overflow-hidden ">
         <h6 className="text-3xl font-bold my-4 text-white ">Submit Newsletters</h6>
         <p className="text-gray-600 mb-4 text-center">
           Sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr <br /> sed diam nonumy sanctus est Lorem ipsum dolor sit amet.
@@ -23,12 +23,7 @@ const Footer = () => {
               type="text"
               className="form-control w-full py-3 px-4 border border-gray-300 rounded-l"
               placeholder="Enter Your Email"
-            />
-
-                 <Button title={"Subscribe"} link={"/#"} />
-            
-              
-            
+            /><Button title={"Subscribe"} link={"/#"} />
           </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
@@ -58,7 +53,6 @@ const Footer = () => {
               <div className="flex space-x-4">
                 <div className="text-2xl text-green-900 mb-4">
                   <MdOutlineMarkEmailRead />
-
                 </div>
                 <div>
                   <p>
@@ -84,7 +78,6 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
