@@ -133,6 +133,25 @@ export const CarBrands = [
   },
 ];
 
+ // ad related section
+ export const Ads = [
+    {
+      src: Suzuki,
+      title: "Suzuki",
+      link: "/suzuki",
+    },
+    {
+      src: Kia,
+      title: "Kia",
+      link: "/kia",
+    },
+    {
+      src: Honda,
+      title: "Honda",
+      link: "/honda",
+    },
+ ];
+
 // Buy And Cell
 export const infoContent = [
   {
