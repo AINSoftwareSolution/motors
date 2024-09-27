@@ -23,3 +23,7 @@
   object-fit: contain;
 }
 
+.gradient-bg{
+  background: linear-gradient(180deg, #306254 0%, #265040 40%, #1f4436 75%, #1c3d31 100%)
+}
+

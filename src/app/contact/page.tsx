@@ -9,18 +9,15 @@ import { Button } from "../component";
 const Contact = () => {
   return (
     <div className=" bg-gray-100 dark:bg-gray-900 overflow-hidden mt-8 ">
-      <div className="container mx-auto px-4 py-16 font-bold text-gray-900 dark:text-white " id="contact">
+      <div className=" container inset-0 mx-auto px-2  lg:px-12 py-16 font-bold text-gray-900 dark:text-white " id="contact">
         <Title
           heading="Contact us"
           subheading="Reach us easily by completing the form or finding our address"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
           <div className="space-y-8 font-bold text-gray-900 dark:text-white">
-
             <div className="flex space-x-4 font-bold text-gray-900 dark:text-white">
               <div className="text-3xl">
-
                 <MdAddIcCall />
               </div>
               <div>
@@ -33,7 +30,6 @@ const Contact = () => {
             <div className="flex space-x-4 mb-3">
               <div className="text-3xl">
                 <FaLocationDot />
-
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-[#2e1760]text-gray-900 dark:text-white ">
@@ -49,7 +45,6 @@ const Contact = () => {
             <div className="flex space-x-4">
               <div className="text-3xl">
                 <MdOutlineMarkEmailRead />
-
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-[#2e1760] text-gray-900 dark:text-white">

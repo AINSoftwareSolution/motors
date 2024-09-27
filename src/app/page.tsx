@@ -1,9 +1,9 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { Hero } from "./utilis/Images";
-import { infoContent, services } from "./utilis/data";
-import { OurBrand, About, Button, InventoryList } from "./component";
+import Link from "next/link";
+import { AboutImg, Hero } from "./utilis/Images";
+import { Button, InventoryList } from "./component";
+import { CarBrands, infoContent, services } from "./utilis/data";
 
 
 export default function Home() {
@@ -11,22 +11,22 @@ export default function Home() {
     <main>
       {/* Hero / Banner Section */}
       <section className="relative w-full bg-gray-200 dark:bg-gray-900 overflow-hidden ptablet:max-h-[1100px]">
-        <div className="relative w-full max-w-7xl mx-auto flex items-center z-10 min-h-screen">
-          <div className="w-full px-4">
+        <div className="relative container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4 flex items-center z-10 min-h-screen">
+          <div className="w-full">
             <div className="grid grid-cols-12 gap-6">
               {/* Text Section */}
               <div className="col-span-12 md:col-span-7 h-full flex items-center">
                 <div className="w-full text-center md:text-left">
                   <h1 className="font-sans font-light text-4xl md:text-5xl lg:text-7xl leading-none text-muted-800 dark:text-white">
-                    Elevate Your Drive, Elevate Your Lifestyle
+                    Elevate Your Drive,<br/> Elevate Your Lifestyle
                   </h1>
                   <p className="font-sans text-base md:text-lg text-muted-500 dark:text-white my-4 mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ex ea
                     difficultate illae fallaciloquae, ut ait adipiscing elit.
                   </p>
                   <div className="flex  md:flex-row justify-center md:justify-start items-center gap-4 mb-4">
-                    <Button title={"New Cars"} link={"/"} />
-                    <Button title={"Inventory"} link={"/#inventoryList"} />
+                    <Button title={"New Cars"} link={"/#inventory"} />
+                    <Button title={"Our Brand"} link={"/#brand"} />
                   </div>
                 </div>
               </div>
@@ -48,53 +48,119 @@ export default function Home() {
 
 
       {/* About Section */}
-      <About />
+      <div className="bg-white dark:bg-gray-900 overflow-hidden" id="about">
+        <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div className="flex justify-center items-center">
+              <Image
+                src={AboutImg}
+                alt="Car Image"
+                className="w-full h-auto object-cover object-center"
+              />
+            </div>
+            <div className="space-y-6">
+              <div>
+                <header>
+                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Welcome to Daulat Cars!
+                    <span className="block w-12 h-1 bg-gray-700 dark:bg-gray-300 mt-2"></span>
+                  </h2>
+                </header>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  WE ARE THE ENTHUSIASTS EMPOWERING EVERYONE TO ACHIEVE THEIR MOTORING DREAMS.<br />
+                  Established in the year 2000 as a benchmark model for pre-owned premium & luxury cars.
+                  This privately held dealership group has come a long way since it was started by Mr. Naushad Khatari and Yusuf Tanwar in Pune,
+                  Maharashtra, India.<br />
+                  We at Daulat Cars want to provide you an experience that is beyond your expectations in a friendly, professional, and efficient manner, creating transparency and trust with the products we sell. We also provide valuable suggestions
+                  in areas like your car, loans, insurance, RTO Works & car models.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Inventory List Section */}
       <InventoryList />
 
       {/* Our Brand Section */}
-      <OurBrand />
+      <div className="bg-white dark:bg-gray-900 overflow-hidden" id="brand">
+        <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4 mt-4 mb-4 text-center dark:bg-gray-900 overflow-hidden">
+          <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
+            Vehicle Collections
+          </h2>
+          <p className="mb-6 mt-4 text-gray-800 dark:text-gray-300 text-sm sm:text-base">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-5 mb-4">
+            {CarBrands.map((brand, index) => (
+              <div
+                key={index}
+                className="relative flex flex-col items-center justify-center group mt-7 mb-5 bg-white p-4 
+                rounded-md shadow-md transition-transform hover:scale-105"
+              >
+                <Link href={brand.link}>
+                  <div className="relative flex items-center justify-center">
+                    <Image
+                      src={brand.src}
+                      alt={brand.alt}
+                      className="brand-img transition-transform duration-300 object-contain"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                </Link>
+                <h3 className="mt-2 font-bold text-md sm:text-lg text-black">
+                  {brand.name}
+                </h3>
+                <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                  {brand.p}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Buy Cell Section */}
       <div className="bg-white dark:bg-gray-900 overflow-hidden">
-  <div className="container mx-auto py-8 px-2 md:px-2 lg:px-4">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {infoContent.map((info, index) => (
-        <div
-          key={info.id}
-          className="relative h-64 md:h-80 flex justify-center items-center rounded-lg overflow-hidden hover:scale-105 hover:shadow-2xl"
-        >
-          <section
-            className={`area-bg ${info.backgroundColor} bg-cover bg-center w-full h-full relative`}
-            style={{ backgroundImage: info.backgroundImage }}
-          >
-            <div className="area-bg__inner absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
-              <h2 className="text-3xl font-bold">
-                {info.title}
-                <strong className="block text-4xl mt-2">{info.strongText}</strong>
-              </h2>
+        <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {infoContent.map((info, index) => (
+              <div
+                key={info.id}
+                className="relative h-64 md:h-80 flex justify-center items-center rounded-lg overflow-hidden hover:scale-105 hover:shadow-2xl"
+              >
+                <section
+                  className={`area-bg  bg-cover bg-center w-full h-full relative`}
+                  style={{ backgroundImage: info.backgroundImage }}
+                >
+                  <div className="area-bg__inner absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center text-white">
+                    <h2 className="text-3xl font-bold">
+                      {info.title}
+                      <strong className="block text-4xl mt-2">{info.strongText}</strong>
+                    </h2>
 
-              {/* Display the button conditionally based on the index */}
-              <div className="mt-4">
-                {index === 0 ? (
-                  <Button title={"Search Your Car"} link={"/#inventoryList"} />
-                ) : (
-                  <Button title={"Let Us Know"} link={"/contact"} />
-                )}
+                    {/* Display the button conditionally based on the index */}
+                    <div className="mt-4">
+                      {index === 0 ? (
+                        <Button title={"Search Your Car"} link={"/#inventory"} />
+                      ) : (
+                        <Button title={"Let Us Know"} link={"/contact"} />
+                      )}
+                    </div>
+                  </div>
+                </section>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
+      </div>
 
-      
+
       {/* Services section start */}
       <div className="bg-gray-200 dark:bg-gray-900 overflow-hidden" id="services">
-        <div className="container mx-auto py-8 px-2 md:px-2 lg:px-4">
+        <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4">
           <div className="text-center mb-8">
             <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
               Our Services

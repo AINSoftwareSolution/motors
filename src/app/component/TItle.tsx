@@ -12,7 +12,6 @@ const Title: React.FC<TitleProps> = ({ heading, subheading }) => {
       {heading}
       </h1>
       <h1 className="text-sm uppercase tracking-wider font-bold text-gray-900 dark:text-white">{subheading}</h1>
-
     </div>
   );
 };

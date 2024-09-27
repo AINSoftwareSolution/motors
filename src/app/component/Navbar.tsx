@@ -37,7 +37,7 @@ const Navbar = () => {
       className={`bg-gray-200 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 
         dark:border-gray-600 ${useLocation() ? 'hidden' : ''}`}
     >
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4 flex flex-wrap items-center justify-between mx-auto p-4">
         <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
