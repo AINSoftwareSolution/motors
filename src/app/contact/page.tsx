@@ -80,7 +80,7 @@ const Contact = () => {
 
           {/* Right Column: Contact Form */}
           <div>
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-4 text-gray-700" onSubmit={handleSubmit}>
               <div className="flex space-x-4">
                 <div className="relative w-1/2">
                   <label className="block mb-1 text-gray-700 dark:text-white">First Name<span className="text-red-500">*</span></label>
