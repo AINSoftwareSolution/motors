@@ -48,7 +48,7 @@ const Contact = () => {
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 overflow-hidden mt-8">
-      <div className="container inset-0 mx-auto px-2 lg:px-12 py-16 font-bold text-gray-900 dark:text-white" id="contact">
+      <div className="container inset-0 mx-auto px-2 lg:px-12 py-16 mt-4 font-bold text-gray-900 dark:text-white" id="contact">
         <Title heading="Contact us" subheading="Reach us easily by completing the form or finding our address" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-8 font-bold text-gray-900 dark:text-white">
