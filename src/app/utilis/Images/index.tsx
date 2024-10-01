@@ -8,7 +8,7 @@ import Toyota  from './toyota.svg';
 import Nissan  from './nissan.svg';
 import Mahindra from './mahindra-mahindra-logo.svg'
 import Kia from './kia.svg'
-import Hyundai from './Hyundai.svg';
+import Hyundai from './hyundai.svg';
 import Mercedes from './mercedes.svg';
 import Honda from './honda-automobiles-1.svg'
 import Tata from './tata-.svg'
