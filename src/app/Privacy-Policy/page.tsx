@@ -7,10 +7,21 @@ const Privacy = () => {
       <h1 className="text-3xl font-bold text-center mb-4 mt-12">Privacy Policy</h1>
       <ul className=" text-gray-800 text-sm list-disc list-outside space-y-4">
         <li>
-        Privacy of your personal information is very important to us. We do not disclose your personal information to third parties for their marketing purposes without your explicit consent. Please read this Privacy Policy to learn more about the ways in which we use and protect your personal information. The privacy practices of this statement apply to our services available under the domain and sub-domains of www.Daulat Cars (Daulat Cars or "Site") and apply generally to our parent, affiliates, subsidiaries or joint venture websites whose specific privacy policies are available from our Privacy Central pages. By visiting this Site you agree to be bound by the terms and conditions of this Privacy Policy. If you do not agree please do not use or access our Site.
+        Privacy of your personal information is very important to us. We do not disclose your personal information to third parties for
+         their marketing purposes without your explicit consent. Please read this Privacy Policy to learn more about the ways in which
+          we use and protect your personal information. The privacy practices of this statement apply to our services available under 
+          the domain and sub-domains of www.Daulat Cars (Daulat Cars or &quot;Site&quot;) and apply generally to our parent, affiliates,
+           subsidiaries or joint venture websites whose specific privacy policies are available from our Privacy Central pages. 
+           By visiting this Site you agree to be bound by the terms and conditions of this Privacy Policy. If you do not agree 
+           please do not use or access our Site.
         </li>
         <li>
-        This Privacy Policy describes the information, as part of the normal operation of our services, we collect from you and what may happen to that information. Although this policy may seem long, we have prepared a detailed policy because we believe you should know as much as possible about Daulat Cars&quot;s practices so that you can make informed decisions. By accepting the Privacy Policy and the User Agreement in registration, you expressly consent to (i) be bound by the terms and conditions of this Privacy Policy and User Agreement; and (ii) our use and disclosure of your personal information in accordance with this Privacy Policy. This Privacy Policy is incorporated into and subject to the terms of the User Agreement.
+        This Privacy Policy describes the information, as part of the normal operation of our services, we collect from you and what 
+        may happen to that information. Although this policy may seem long, we have prepared a detailed policy because we believe you
+         should know as much as possible about Daulat Cars&quot;s practices so that you can make informed decisions. By accepting the 
+         Privacy Policy and the User Agreement in registration, you expressly consent to (i) be bound by the terms and conditions of 
+         this Privacy Policy and User Agreement; and (ii) our use and disclosure of your personal information in accordance with 
+         this Privacy Policy. This Privacy Policy is incorporated into and subject to the terms of the User Agreement.
        </li>
       </ul>
 
@@ -31,7 +42,9 @@ const Privacy = () => {
       <li>When you use our Site, we collect and store your personal information provided by you. Our primary goal in doing so is to provide a safe, efficient, smooth and customized experience. This allows us to provide services and features that most likely meet your needs, and to customize our Site to make your experience safer and easier. Importantly, we only collect personal information about you that we consider necessary for achieving this purpose. In general, you can browse the Site without telling us who you are or revealing any personal information about yourself. Once you give us your personal information, you are not anonymous to us. To fully use our Site, you will need to register using our online registration form, where you may be required to provide us with your contact and identity information and other personal information as indicated on the forms throughout the Site. Where possible, we indicate which fields are required and which fields are optional. You always have the option to not provide information by choosing not to use a particular service or feature on the Site.
      </li>
      <li> We may automatically track certain information about you based upon your behavior on our Site. We use this information to do internal research on our usersdemographics, interests, and behavior to better understand, protect and serve our users. This information is compiled and analyzed on an aggregated basis. This information may include the URL that you just came from (whether this URL is on our Site or not), which URL you next go to (whether this URL is on our Site or not), your computer browser information, and your IP address.</li>
-    <li> We use data collection devices such as "cookies" on certain pages of the Site to help analyze our web page flow, measure promotional effectiveness, and promote trust and safety. "Cookies" are small files placed on your hard drive that assist us in providing our services. We offer certain features that are only available through the use of a "cookie". We also use cookies to allow you to enter your password less frequently during a session. Cookies can also help us provide information that is targeted to your interests. Most cookies are "session cookies," meaning that they are automatically deleted from your hard drive at the end of a session. You are always free to decline our cookies if your browser permits, although in that case you may not be able to use certain features on the Site and you may be required to reenter your password more frequently during a session.</li>
+    <li> We use data collection devices such as &quot;cookies&quot; on certain pages of the Site to help analyze our web page flow, measure promotional effectiveness, and promote trust and safety. 
+    &quot;Cookies&quot; are small files placed on your hard drive that assist us in providing our services. We offer certain features 
+    that are only available through the use of a &quot;cookie&quot;. We also use cookies to allow you to enter your password less frequently during a session. Cookies can also help us provide information that is targeted to your interests. Most cookies are &quot;session cookies,&quot; meaning that they are automatically deleted from your hard drive at the end of a session. You are always free to decline our cookies if your browser permits, although in that case you may not be able to use certain features on the Site and you may be required to reenter your password more frequently during a session.</li>
     </ul>
 
     <h2 className="text-xl font-semibold mb-1 mt-4">4. Our use of your information </h2>
@@ -109,15 +122,23 @@ const Privacy = () => {
        <h2 className="text-md font-semibold mb-1 mt-4">7. Access or change your personally identifiable information
        </h2>
        <ul className=" text-gray-800 text-sm list-disc list-outside space-y-4">
-   <li>To protect your privacy and security, we will verify your identity before granting access or making changes to your personally-identifying information. If you have registered your profile on Daulat Cars, your Daulat Cars ID and Password are required in order to access your profile information.</li>
+   <li>To protect your privacy and security, we will verify your identity before granting access or making changes to your 
+    personally-identifying information. If you have registered your profile on Daulat Cars, your Daulat Cars ID and Password are 
+    required in order to access your profile information.</li>
         </ul>
      
         <h2 className="text-md font-semibold mb-1 mt-4">8. Security and Limitation of Liability
        </h2>
        <ul className=" text-gray-800 text-sm list-disc list-outside space-y-4">
-        <li> We use several processes to safeguard your information, to maintain our data security and to prevent any unauthorized access to your information. For this, we have deployed different physical, electronic and business processes. The safeguards we use are tailored towards to type and sensitivity of the information that we collect, process and transmit, as well as the present technological knowledge and progress.</li>
-        <li>We have deployed several generally accepted industry standards, such as firewalls, encryption, software development processes, traffic monitors, automated tools, and others to protect any information residing with us or being transmitted to us.</li>
-        <li>Any third party service providers we use for processing payments are validated as compliant with the payment card industry standard (PCI compliant service providers).</li>
+        <li> We use several processes to safeguard your information, to maintain our data security and to prevent any unauthorized 
+          access to your information. For this, we have deployed different physical, electronic and business processes. 
+          The safeguards we use are tailored towards to type and sensitivity of the information that we collect, process and transmit, 
+          as well as the present technological knowledge and progress.</li>
+        <li>We have deployed several generally accepted industry standards, such as firewalls, encryption, software development 
+          processes, traffic monitors, automated tools, and others to protect any information residing with us or being transmitted
+           to us.</li>
+        <li>Any third party service providers we use for processing payments are validated as compliant with the payment card industry
+           standard (PCI compliant service providers).</li>
         </ul>
 
      <h2 className="text-md font-semibold mb-1 mt-4">9. Your Consent
