@@ -6,7 +6,9 @@ const TermsAndConditions = () => {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-center mb-4 mt-12">Terms and Conditions</h1>
         <p className="text-lg mb-4">
-          Welcome to Daulat Cars. In these Terms & Conditions, the terms "Daulat Cars", "Website", "We", "Us" and "Our" refer to Daulat Cars and the terms "You", "Yours" refer to You as a user of Daulat Cars.
+          Welcome to Daulat Cars. In these Terms & Conditions, the terms &quot;Daulat Cars&quot;, &quot;Website&quot;, 
+          &quot;We&quot;, &quot;Us&quot; and &quot;Our&quot; refer to Daulat Cars and the terms &quot;You&quot;, &quot;Yours&quot; 
+          refer to You as a user of Daulat Cars.
         </p>
         <h2 className="text-xl font-semibold mb-4">Section 1: General Provisions</h2>
         <ul className="text-gray-800 text-sm list-disc list-outside space-y-4">
@@ -56,7 +58,7 @@ const TermsAndConditions = () => {
         <h2 className="text-xl font-semibold mt-8 mb-4">Section 5: Listing Your Vehicle</h2>
         <ul className="text-gray-800 text-sm list-disc list-outside space-y-4">
           <li>
-          Daulat Cars offers a numbers of options for private sellers to sell their car. On the "Sell Your Car" tab on our home page select the city and on the next page, kindly fill in the blank form and get started. For information about ad packages available to dealers, please visit Daulat Cars.
+          Daulat Cars offers a numbers of options for private sellers to sell their car. On the &quot;Sell Your Car&quot; tab on our home page select the city and on the next page, kindly fill in the blank form and get started. For information about ad packages available to dealers, please visit Daulat Cars.
           </li>
           <li>
           In order for You to offer a vehicle for sale through our Sell Your Car service for private sellers; You must have possession of the actual vehicle listed and the ability to transfer title. To list a vehicle for sale on Daulat Cars, sellers also are required to provide certain identifying and contact information. The information must accurately identify the seller and the method of contact must permit buyers to communicate directly with the seller. You may not charge any potential buyer for information about any vehicle listed for sale on Daulat Cars, nor may You use our Website to promote, without our prior written permission, any other Website, product, or service.          </li>
