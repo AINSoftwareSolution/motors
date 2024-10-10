@@ -5,13 +5,7 @@ import { NextResponse } from 'next/server';
 import path from 'path';
 
 // Configure the AWS S3 client using S3Client from AWS SDK v3
-const s3 = new S3Client({
-    // region: 'eu-north-1',
-    // credentials: {
-    //     accessKeyId: 'AKIAW3MD7AD2EAJWHNZU',
-    //     secretAccessKey: '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',
-    // }
-});
+const s3 = new S3Client({});
 
 // Function to check the image type
 function checkImageType(file:any, cb:any) {
