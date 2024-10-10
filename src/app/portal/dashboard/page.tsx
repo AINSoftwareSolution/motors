@@ -38,8 +38,25 @@ const Dashboard = () => {
   };
 
   // Function to handle file change for images
-  const handleFileChange = (e: any) => {
-    setFormData({ ...formData, images: e.target.files });
+  // Function to handle file change for images
+  const handleFileChange = async (e: any) => {
+    const files: any = Array.from(e.target.files);
+    const uploadedImages = [];
+
+    for (const file of files) {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const res = await fetch('/api/car/uploadImage', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      uploadedImages.push(data.url); // Store the image URL returned from the API
+    }
+
+    setFormData({ ...formData, images: uploadedImages });
   };
 
   const handleFeaturesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,13 +67,13 @@ const Dashboard = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-     await fetch('/api/car', {
-        method: 'POST',
-        // headers: {
-        //   'Authorization': `Bearer ${token}`, // Pass token here
-        // },
-        body: JSON.stringify(formData)
-      }).then((res)=> console.log(res.json()) )
+    await fetch('/api/car', {
+      method: 'POST',
+      // headers: {
+      //   'Authorization': `Bearer ${token}`, // Pass token here
+      // },
+      body: JSON.stringify(formData)
+    }).then((res) => console.log(res.json()))
   }
 
   // useEffect(() => {
@@ -185,7 +202,11 @@ const Dashboard = () => {
           <div>
             <label htmlFor="images" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Images</label>
-            <input id="images" name="images" type="file" multiple onChange={handleFileChange}
+            <input id="images"
+              name="images"
+              type="file"
+              multiple
+              onChange={handleFileChange}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
           </div>
           <div>
