@@ -6,28 +6,20 @@ export async function POST(request: Request) {
   const {  email, password } = await request.json();
 
   try {
-    // Connect to MongoDB
     await connectMongoDB();
-
-    // Check if user already exists
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
       return NextResponse.json(
         { message: 'User already exists with this email' },
         { status: 400 }
       );
-    }
-
-    // Create new 
-    
-    
+    }    
     const newUser = new UserModel({
       email,
       password, 
     });
 
     await newUser.save();
-
     return NextResponse.json(
       { message: 'User registered successfully', user: {  email } },
       { status: 201 }
@@ -39,3 +31,20 @@ export async function POST(request: Request) {
     );
   }
 }
+
+
+export async function GET() {
+  try {
+    await connectMongoDB();
+    const users = await UserModel.find();
+    return NextResponse.json(users, { status: 200 });
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        message: `An error occurred while fetching user data: ${error.message}`,
+      },
+      { status: 500 }
+    );
+  }
+}  
+
