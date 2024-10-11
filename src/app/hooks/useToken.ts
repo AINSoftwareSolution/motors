@@ -15,7 +15,7 @@ const useToken = () => {
         }
     }, []);
 
-    return token;
+    return localStorage.getItem('token');
 };
 
 export default useToken;

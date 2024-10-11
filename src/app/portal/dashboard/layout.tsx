@@ -1,11 +1,23 @@
+'use client'
 import Sidebar from "@/app/component/sidebar"
-import { Suspense } from "react"
+import useToken from "@/app/hooks/useToken";
+import { useRouter } from "next/navigation";
+import { Suspense, useEffect } from "react"
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const token = useToken()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!token) {
+      router.push('/portal/login');
+    }
+  }, []);
+
   return (
     <Suspense fallback={<p>Loading feed...</p>}>
       <section>
