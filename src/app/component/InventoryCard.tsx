@@ -10,8 +10,8 @@ const InventoryCard = ({ item }: { item: any }) => {
 
       <div className="relative w-full h-48 overflow-hidden rounded-md">
         <Image
-          src={item.imgSrc}
-          alt={item.title}
+          src={item?.images[0]}
+          alt={item.model}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           width={400}
           height={300}
@@ -22,7 +22,7 @@ const InventoryCard = ({ item }: { item: any }) => {
         {/* Title */}
         <h3 className="text-lg font-semibold text-green-900 dark:text-white">
           <Link href="detail.html" className="hover:underline">
-            {item.title}
+            {item.model}
           </Link>
         </h3>
         {/* Price */}
@@ -32,11 +32,11 @@ const InventoryCard = ({ item }: { item: any }) => {
         {/* Location */}
         <div className="location text-gray-500 dark:text-white flex items-center justify-center mt-1">
           <i className="fa fa-map-marker text-red-500 mr-1" aria-hidden="true"></i>
-          {item.location}
+          {item.city}
         </div>
       </div>
       {/* View Details Button */}
-      <Button title={"View Details"} link={"/inventory/${item.id}"} />
+      <Button title={"View Details"} link={`/inventory/${item._id}`} />
     </div>
 
   );

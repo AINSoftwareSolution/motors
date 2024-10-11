@@ -17,17 +17,6 @@ const Sidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-
-
-    useEffect(() => {
-        // Only push to login if token is still null after it's been fetched
-        if (token !== undefined) {
-            if (!token) {
-                router.push('/portal/login');
-            }
-        }
-    }, []);
-
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {

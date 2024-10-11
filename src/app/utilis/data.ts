@@ -374,6 +374,7 @@ export const staySafe = [
 
 
 export const carMakes = [
+  "Duster", 
   'Toyota',
   'Honda',
   'Ford',
