@@ -371,3 +371,38 @@ export const staySafe = [
   "How to spot scam ads?",
   "How to protect yourself?",
 ];
+
+
+export const carMakes = [
+  'Toyota',
+  'Honda',
+  'Ford',
+  'Chevrolet',
+  'Nissan',
+  'BMW',
+  'Mercedes-Benz',
+  'Volkswagen',
+  'Hyundai',
+  'Kia',
+  'Subaru',
+  'Mazda',
+  'Dodge',
+  'Jeep',
+  'Chrysler',
+  'GMC',
+  'Porsche',
+  'Tesla',
+  'Audi',
+  'Lexus',
+  'Land Rover',
+  'Jaguar',
+  'Volvo',
+  'Mitsubishi',
+  'Acura',
+  'Infiniti',
+  'Buick',
+  'Lincoln',
+  'Ram',
+  'Fiat',
+];
+

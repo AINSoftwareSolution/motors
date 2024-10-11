@@ -1,7 +1,8 @@
 "use client"
+import { carMakes } from '@/app/utilis/data'
 import { CarFormData } from '@/app/utilis/type'
 import Image from 'next/image'
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import { IoCarSportOutline } from 'react-icons/io5'
 
 const Dashboard = () => {
@@ -64,10 +65,10 @@ const Dashboard = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-  
+
     // Ensure images array is part of the formData
     const updatedFormData = { ...formData, images: imgPaths }; // Add image paths to formData
-  
+
     try {
       const response = await fetch('/api/car', {
         method: 'POST',
@@ -77,7 +78,7 @@ const Dashboard = () => {
         },
         body: JSON.stringify(updatedFormData), // Send formData with images as array
       });
-  
+
       if (response.ok) {
         await response.json();
         setFormData(intialvalues); // Reset form data
@@ -89,10 +90,10 @@ const Dashboard = () => {
       console.error('Form submission failed:', error);
     }
   };
-  
-  
 
-  
+
+
+
 
   return (
     <>
@@ -106,9 +107,17 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <label htmlFor="make" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Make <span className="text-red-500">*</span></label>
-              <input id="make" name="make" type="text" required onChange={handleInputChange} value={formData?.make}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                Make <span className="text-red-500">*</span>
+              </label>
+              <select id="make" name="make" required onChange={handleInputChange} value={formData?.make}
+                className="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="">Select Make</option>
+                {carMakes.map((make:string) => (
+                  <option key={make} value={make}>
+                    {make}
+                  </option>
+                ))}
+              </select>
             </div>
             <div>
               <label htmlFor="model" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
