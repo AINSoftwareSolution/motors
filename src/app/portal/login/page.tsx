@@ -36,8 +36,8 @@ const Login = () => {
                 setEmail('')
                 setPassword('')
                 router.push('/portal/dashboard')
-
             } else {
+                alert('Login Failed. Try Again!')
                 console.log('Login failed');
             }
         } catch (error) {

@@ -21,16 +21,9 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    // Parse car data from the request
     const carData = await request.json();
-    console.log("carData", carData);
-    // Connect to MongoDB
     await connectMongoDB();
-
-    // Save car data to the database
     await CarModel.create(carData);
-
-    // Return a success response
     return NextResponse.json(
       { message: "Car has been successfully listed.", status: 201 },
       { status: 201 }

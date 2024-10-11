@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs';
 
 // Define an interface for the user document
 interface IUser extends Document {
-  username: string;
   email: string;
   password: string;
   matchPassword(enteredPassword: string): Promise<boolean>;

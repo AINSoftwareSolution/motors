@@ -8,7 +8,7 @@ export async function GET(request: Request, { params }: { params: { carId: strin
 
   try {
     await connectMongoDB();
-    const car = await CarModal.findOne({ carId: carId });
+    const car = await CarModal.findOne({ _id: carId });
 
     if (!car) {
       return NextResponse.json(
