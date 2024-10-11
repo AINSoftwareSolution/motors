@@ -12,11 +12,11 @@ export default function DashboardLayout({
   const token = useToken()
   const router = useRouter()
 
-  useEffect(() => {
-    if (!token) {
-      router.push('/portal/login');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!token) {
+  //     router.push('/portal/login');
+  //   }
+  // }, []);
 
   return (
     <Suspense fallback={<p>Loading feed...</p>}>
