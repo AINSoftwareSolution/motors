@@ -46,7 +46,7 @@ const InventoryList = () => {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 mb-4 overflow-hidden">
           {inventoryItems.map((item:any) => (
-            <InventoryCard key={item.id} item={item} />
+            <InventoryCard key={item?.id} item={item} />
           ))}
         </div>
       </div>
