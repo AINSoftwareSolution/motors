@@ -21,7 +21,7 @@ const InventoryCard = ({ item }: { item: any }) => {
       <div className="p-4 text-center">
         {/* Title */}
         <h3 className="text-lg font-semibold text-green-900 dark:text-white">
-          <Link href="detail.html" className="hover:underline">
+          <Link href={`/inventory/${item._id}`} className="hover:underline">
             {item.model}
           </Link>
         </h3>

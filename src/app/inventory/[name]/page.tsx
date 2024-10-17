@@ -1,24 +1,49 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { CiClock2, CiLocationOn } from "react-icons/ci";
+import { CiLocationOn } from "react-icons/ci";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { FaPrint } from "react-icons/fa";
-import {
-  aboutcar,
-  carFeatures,
-  features,
-  images,
-  relatedAds,
-  staySafe,
-} from "../../utilis/data";
+import { staySafe,} from "../../utilis/data";
+import { useParams } from "next/navigation";
+import { Loader } from "@/app/component";
 
 const CarDetails = () => {
-  // State to manage the currently displayed image
+  const params = useParams()
+  const [inventoryItem, setInventoryItem] = useState<any>({});
+  const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+
+
+  useEffect(() => {
+    const fetchInventoryItems = async () => {
+      try {
+        const response = await fetch(`/api/car/${params.name}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data)
+        setInventoryItem(data);
+      } catch (err: any) {
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInventoryItems();
+  }, []);
+
+  if (loading) {
+    return <Loader />
+  }
+
+
+  // State to manage the currently displayed image
   const handleThumbnailClick = (index: React.SetStateAction<number>) => {
     setCurrentImageIndex(index);
   };
@@ -31,7 +56,7 @@ const CarDetails = () => {
             <div className="flex flex-wrap items-center justify-between">
               <div className="w-full md:w-7/12 sm:w-6/12">
                 <h1 className="text-2xl font-bold text-white">
-                  Morcedas C180 Elegance 2008 Reg 2012
+                  {inventoryItem?.model}
                 </h1>
               </div>
             </div>
@@ -46,19 +71,18 @@ const CarDetails = () => {
               <div className="lg:col-span-7">
                 <div className="w-full h-96 overflow-hidden relative">
                   <ul className="flex transition-transform duration-500">
-                    {images.map((image, index) => (
+                    {inventoryItem?.images?.map((image: string, index: number) => (
                       <li
                         key={index}
-                        className={`flex-shrink-0 w-full h-full ${
-                          index === currentImageIndex ? "block" : "hidden"
-                        }`}
+                        className={`flex-shrink-0 w-full h-full ${index === currentImageIndex ? "block" : "hidden"
+                          }`}
                       >
                         <Image
-                          src={image.src}
-                          alt={image.alt}
+                          src={image}
+                          alt={inventoryItem?.model}
                           layout="fill"
                           className="w-full"
-                          objectFit="cover"
+                          
                         />
                       </li>
                     ))}
@@ -66,15 +90,15 @@ const CarDetails = () => {
                 </div>
 
                 <div className="flex space-x-2 mt-4">
-                  {images.map((image, index) => (
+                  {inventoryItem?.images?.map((image: string, index: number) => (
                     <div
                       key={index}
                       className="w-24 h-24 overflow-hidden cursor-pointer"
                       onClick={() => handleThumbnailClick(index)}
                     >
                       <Image
-                        src={image.src}
-                        alt={image.alt}
+                        src={image}
+                        alt={inventoryItem?.model}
                         width={100}
                         height={100}
                         className="hover:opacity-75"
@@ -87,26 +111,31 @@ const CarDetails = () => {
                 <div className="text-2xl mt-10 mb-10">
                   <h2 className="text-3xl font-bold mb-6">Features</h2>
                   <ul className="list-disc pl-5 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {carFeatures.map((feature, index) => (
+                    {inventoryItem?.features?.map((feature: string, index: number) => (
                       <li key={index} className="text-lg">
-                        {feature.text}
+                        {feature}
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                <div className=" mt-10 mb-10">
+                  <h2 className="text-3xl font-bold mb-6">Description</h2>
+                  <p className="text-xl">{inventoryItem?.description}</p>
                 </div>
 
                 {/* Related Ads */}
 
                 <div className="relatedJobs mt-16 mb-10">
                   <h3 className="text-2xl font-semibold mb-4">Related Ads</h3>
-                  <ul className="space-y-3">
+                  {/* <ul className="space-y-3">
                     {relatedAds.map((ad, index) => (
                       <li
                         key={index}
                         className="bg-white shadow rounded-lg p-4"
                       >
                         <div className="flex flex-col md:flex-row">
-                          {/* Ad Image */}
+                          {/* Ad Image 
                           <div className="w-full md:w-20 mb-2 md:mb-0">
                             <div className="adimg">
                               <Image
@@ -119,7 +148,7 @@ const CarDetails = () => {
                             </div>
                           </div>
 
-                          {/* Ad Info */}
+                          {/* Ad Info 
                           <div className="w-full md:w-3/2">
                             <div className="jobinfo">
                               <div className="flex flex-col md:flex-row">
@@ -163,7 +192,7 @@ const CarDetails = () => {
                                     Last Updated: {ad.lastUpdated}
                                   </div>
                                 </div>
-                                {/* Ad Price */}
+                                {/* Ad Price 
                                 <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 ">
                                   <div className="adprice text-2xl font-bold ">
                                     {ad.price}
@@ -187,7 +216,7 @@ const CarDetails = () => {
                         </div>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
 
@@ -198,39 +227,34 @@ const CarDetails = () => {
                     Car Details
                   </h3>
                   <ul className="space-y-6">
-                    {features.map((feature, index) => (
-                      <li key={index}>
-                        <div className="text-white text-xl mb-4">
-                          {feature.text}
-                        </div>
-                        <div className="text-white text-4xl mb-4">
-                          {feature.price}
-                        </div>
-                        <div className="flex items-center space-x-2 text-white mb-5">
-                          <CiLocationOn className="text-3xl" />
-                          <span className="text-lg">{feature.location}</span>
-                        </div>
-                        <div className="flex items-center space-x-2 text-white mb-5">
-                          <CiClock2 className="text-3xl" />
-                          <span className="text-lg">{feature.time}</span>
-                        </div>
-                      </li>
-                    ))}
+
+                    <li>
+                      <div className="text-white text-xl mb-4">
+                        Price
+                      </div>
+                      <div className="text-white text-4xl mb-4">
+                        {inventoryItem?.price}
+                      </div>
+                      <div className="flex items-center space-x-2 text-white mb-5">
+                        <CiLocationOn className="text-3xl" />
+                        <span className="text-lg">{inventoryItem?.city}</span>
+                      </div>
+                    </li>
                   </ul>
 
                   {/* Button Section */}
                   <div className="flex flex-col gap-4 mt-4">
                     <Link
-                      href="tel:555 456 46679"
+                      href={`tel:${inventoryItem?.sellerContact}`}
                       className="bg-blue-600 text-white px-6 py-4 flex items-center justify-center rounded text-center"
                     >
-                      <FaPhoneAlt className="mr-2" /> 555 456 46679
+                      <FaPhoneAlt className="mr-2" /> {inventoryItem?.sellerContact}
                     </Link>
                     <Link
-                      href="mailto:abc@gmail.com"
+                      href="mailto:daulatcars@gmail.com"
                       className="bg-gray-600 text-white px-6 py-4 flex items-center justify-center rounded"
                     >
-                      <MdMessage className="mr-2" /> Send A Message
+                      <MdMessage className="mr-2" /> Send A Mail
                     </Link>
                     <button
                       onClick={() => window.print()}
@@ -247,15 +271,46 @@ const CarDetails = () => {
                     About This Car
                   </h3>
                   <ul className="space-y-2">
-                    {aboutcar.map((aboutcarItem, index) => (
-                      <li
-                        key={index}
-                        className="flex justify-between text-white text-md mb-2"
-                      >
-                        <div>{aboutcarItem.text}</div>
-                        <div>{aboutcarItem.location}</div>
-                      </li>
-                    ))}
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Registered City</div>
+                      <div>{inventoryItem?.city}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Color</div>
+                      <div>{inventoryItem?.color}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Assembly</div>
+                      <div>{inventoryItem?.assembly}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Engine Capacity</div>
+                      <div>{inventoryItem?.engineCapacity}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Body Type</div>
+                      <div>{inventoryItem?.color}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Last Updated</div>
+                      <div>{new Date(inventoryItem?.lastUpdated).toLocaleDateString()}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Model</div>
+                      <div>{inventoryItem?.model}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Millage</div>
+                      <div>{inventoryItem?.mileage}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Fuel</div>
+                      <div>{inventoryItem?.fuelType}</div>
+                    </li>
+                    <li className="flex justify-between text-white text-md mb-2">
+                      <div>Transmission</div>                     
+                      <div>{inventoryItem?.transmission}</div>
+                    </li>
                   </ul>
                 </div>
 
@@ -265,7 +320,7 @@ const CarDetails = () => {
                     Stay Safe
                   </h3>
                   <ul className="list-disc list-outside text-white pl-4">
-                    {staySafe.map((tip, index) => (
+                    {staySafe?.map((tip, index) => (
                       <li key={index} className="mb-6">
                         {tip}
                       </li>
