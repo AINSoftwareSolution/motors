@@ -1,11 +1,10 @@
 'use client'
-import React, { useEffect, useState } from "react";
-import InventoryCard from "./InventoryCard";
+import React, { useEffect, useMemo, useState } from "react";
+import { Loader , Button, InventoryCard} from ".";
 
-const InventoryList = () => {
+const InventoryList = ({ isHome }: { isHome?: boolean }) => {
   const [inventoryItems, setInventoryItems] = useState([]);
   const [loading, setLoading] = useState(true); // State to handle loading status
-  const [error, setError] = useState(null); // State to handle any errors
 
   useEffect(() => {
     const fetchInventoryItems = async () => {
@@ -15,10 +14,8 @@ const InventoryList = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data)
         setInventoryItems(data); // Assuming data is an array of inventory items
-      } catch (err:any) {
-        setError(err.message); // Set error message if fetch fails
+      } catch (err: any) {
       } finally {
         setLoading(false); // Set loading to false after fetch is complete
       }
@@ -27,12 +24,12 @@ const InventoryList = () => {
     fetchInventoryItems();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>; // Loading state
-  }
+  const data = useMemo(() => {
+    return isHome ? inventoryItems.slice(0, 8) : inventoryItems;
+  }, [inventoryItems, isHome]);
 
-  if (error) {
-    return <div>Error: {error}</div>; // Error state
+  if (loading) {
+    return  <Loader />
   }
 
   return (
@@ -45,10 +42,17 @@ const InventoryList = () => {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 mb-4 overflow-hidden">
-          {inventoryItems.map((item:any) => (
+          {data?.map((item: any) => (
             <InventoryCard key={item?.id} item={item} />
           ))}
         </div>
+
+        {
+          (isHome && data.length >= 8) &&
+          <div>
+            <Button title="Visit More" link="/inventory" />
+          </div>
+        }
       </div>
     </div>
   );
