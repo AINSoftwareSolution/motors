@@ -1,36 +1,16 @@
 "use client"
-import { carMakes } from '@/app/utilis/data'
+import { carIntialData, carMakes } from '@/app/utilis/data'
 import { CarFormData } from '@/app/utilis/type'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { IoCarSportOutline } from 'react-icons/io5'
 
-const Dashboard = () => {
-
-  const intialvalues = {
-    make: '',
-    model: '',
-    year: '',
-    price: '',
-    mileage: '',
-    city: '',
-    color: '',
-    assembly: '',
-    engineCapacity: '',
-    bodyType: '',
-    adsRef: '',
-    features: [],
-    sellerContact: '',
-    images: [],
-    description: '',
-    transmission: '',
-    fuelType: '',
-    lastUpdated: ''
-  }
-
+const Updatecar= () => {
   // States to manage form data and errors
   const [imgPaths, setImgPaths] = useState<any>([])
-  const [formData, setFormData] = useState<CarFormData>(intialvalues);
+  const [formData, setFormData] = useState<CarFormData>(carIntialData);
+  const router = useRouter()
 
   const handleInputChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
@@ -81,7 +61,8 @@ const Dashboard = () => {
 
       if (response.ok) {
         await response.json();
-        setFormData(intialvalues); // Reset form data
+        router.push('/portal/dashboard/car')
+        setFormData(carIntialData); // Reset form data
         setImgPaths([]); // Clear image paths
       } else {
         console.error('Error submitting form:', response.statusText);
@@ -90,10 +71,6 @@ const Dashboard = () => {
       console.error('Form submission failed:', error);
     }
   };
-
-
-
-
 
   return (
     <>
@@ -112,7 +89,7 @@ const Dashboard = () => {
               <select id="make" name="make" required onChange={handleInputChange} value={formData?.make}
                 className="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="">Select Make</option>
-                {carMakes.map((make:string) => (
+                {carMakes?.map((make:string) => (
                   <option key={make} value={make}>
                     {make}
                   </option>
@@ -255,4 +232,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Updatecar

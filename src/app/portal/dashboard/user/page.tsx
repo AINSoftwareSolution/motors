@@ -1,6 +1,7 @@
 "use client"
+import { CardHeader } from '@/app/component';
 import React, { useEffect, useState } from 'react';
-import { IoCarSportOutline } from 'react-icons/io5';
+import { IoPersonOutline } from 'react-icons/io5';
 
 interface User {
   _id: any;
@@ -45,7 +46,7 @@ const UserManagement: React.FC = () => {
 
     // Add user to the API
     try {
-      const response = await fetch('/api/users', {
+      const response = await fetch('/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,8 +62,9 @@ const UserManagement: React.FC = () => {
       }
 
       const newUser = await response.json();
+      console.log(newUser.user)
       // Update users list with the new user
-      setUsers([...users, newUser]);
+      setUsers([...users, newUser.user]);
       setFormData({ email: '', password: '' }); // Clear form
     } catch (error) {
       console.error('Error adding user:', error);
@@ -71,8 +73,14 @@ const UserManagement: React.FC = () => {
 
   const handleDeleteUser = async (id: number) => {
     try {
-      const response = await fetch(`/api/users/${id}`, {
+      const response = await fetch(`/api/user/register`, {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          _id: id // Do not store passwords like this in a real app
+        }),
       });
 
       if (!response.ok) {
@@ -88,11 +96,7 @@ const UserManagement: React.FC = () => {
 
   return (
     <div>
-      <div className="rounded bg-gray-50 dark:bg-gray-700 p-6 my-2 text-lg	font-bold flex text-gray-900 
-      dark:text-white gap-x-2">
-        <IoCarSportOutline fontWeight={900} fontSize={25} />
-        <h4 className='text-gray-900 dark:text-white'> Add Car Details</h4>
-      </div>
+      <CardHeader title='User Details' icon={<IoPersonOutline />} />
       <div className="rounded bg-gray-50 dark:bg-gray-800 p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -109,7 +113,7 @@ const UserManagement: React.FC = () => {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
             </div>
             <div>
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+              <label className="block mb-6 text-sm font-medium text-gray-900 dark:text-white"></label>
               <button type="submit" className='px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm
              hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:bg-blue-300
               disabled:cursor-not-allowed w-full'
@@ -120,7 +124,7 @@ const UserManagement: React.FC = () => {
 
 
         <div className="rounded bg-gray-50 dark:bg-gray-700 p-6 my-2 text-lg font-bold text-gray-900 
-      dark:text-white gap-x-2">
+          dark:text-white gap-x-2">
           <h3>User List</h3>
           <ul>
             {users.map((user) => (
