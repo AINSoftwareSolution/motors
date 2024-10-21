@@ -237,3 +237,25 @@ export const carMakes = [
   'Fiat',
 ];
 
+
+
+export const carIntialData = {
+  make: '',
+  model: '',
+  year: '',
+  price: '',
+  mileage: '',
+  city: '',
+  color: '',
+  assembly: '',
+  engineCapacity: '',
+  bodyType: '',
+  adsRef: '',
+  features: [],
+  sellerContact: '',
+  images: [],
+  description: '',
+  transmission: '',
+  fuelType: '',
+  lastUpdated: ''
+}
