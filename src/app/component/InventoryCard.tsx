@@ -3,19 +3,25 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from './Button';
 
+
+
 const InventoryCard = ({ item }: { item: any }) => {
+  const validImages = item?.images?.filter((image: any): image is any => image !== null) || [];
+  const imageToDisplay = validImages.length > 0 ? validImages[0] : '/path/to/default/image.jpg';
   return (
     <div className="relative flex flex-col items-center justify-center group bg-white dark:bg-gray-800 p-4 rounded-lg 
     shadow-md transition-transform hover:scale-105">
 
       <div className="relative w-full h-48 overflow-hidden rounded-md">
-        <Image
-          src={item?.images[0]}
-          alt={item.model}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-          width={400}
-          height={300}
-        />
+        {item && (
+          <Image
+            src={imageToDisplay}
+            alt={item.model || 'Default alt text'}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            width={400}
+            height={300}
+          />
+        )}
       </div>
 
       <div className="p-4 text-center">
