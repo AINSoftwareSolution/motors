@@ -26,12 +26,12 @@ export async function GET(request: Request, { params }: { params: { carId: strin
 }
 
 // DELETE: Delete a car by ID
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function DELETE(request: Request, { params }: { params: { carId: string } }) {
+  const { carId } = params;
 
   try {
     await connectMongoDB();
-    const deletedCar = await CarModel.findByIdAndDelete(id);
+    const deletedCar = await CarModel.findByIdAndDelete(carId);
 
     if (!deletedCar) {
       return NextResponse.json({ message: "Car not found." }, { status: 404 });

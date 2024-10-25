@@ -33,7 +33,7 @@ const CarTable = () => {
       if (!response.ok) {
         throw new Error('Failed to delete car');
       }
-      setCars(cars.filter((car: any) => car?.id !== id));
+      setCars(cars.filter((car: any) => car?._id !== id));
     } catch (err) {
     }
   };
@@ -83,7 +83,7 @@ const CarTable = () => {
                   {/* Delete Icon */}
                   <button
                     className="text-red-500 hover:text-red-700"
-                    onClick={() => handleDelete(car?.id)}
+                    onClick={() => handleDelete(car?._id)}
                   >
                     <RiDeleteBin6Line />
                   </button>

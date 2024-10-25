@@ -48,6 +48,10 @@ const CarDetails = () => {
     setCurrentImageIndex(index);
   };
 
+  const validImages = inventoryItem?.images?.filter((image: any): image is any => image !== null) || [];
+
+  console.log('v' , validImages)
+
   return (
     <>
       <div className="dark:bg-gray-900 overflow-hidden">
@@ -71,7 +75,7 @@ const CarDetails = () => {
               <div className="lg:col-span-7">
                 <div className="w-full h-96 overflow-hidden relative">
                   <ul className="flex transition-transform duration-500">
-                    {inventoryItem?.images?.map((image: string, index: number) => (
+                    {validImages.length > 0 && validImages?.map((image: string, index: number) => (
                       <li
                         key={index}
                         className={`flex-shrink-0 w-full h-full ${index === currentImageIndex ? "block" : "hidden"
@@ -90,7 +94,7 @@ const CarDetails = () => {
                 </div>
 
                 <div className="flex space-x-2 mt-4">
-                  {inventoryItem?.images?.map((image: string, index: number) => (
+                  {validImages.length > 0 && validImages?.map((image: string, index: number) => (
                     <div
                       key={index}
                       className="w-24 h-24 overflow-hidden cursor-pointer"
