@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
 import { connectMongoDB } from "../../../lib/connect"; 
 import CarModel from "../../../models/carModel"; 
+import { ObjectId } from 'mongodb';
+
 
 // GET: Fetch a single car by ID
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(request: Request, { params }: { params: { carId: string } }) {
+  const { carId } = params;
 
   try {
     await connectMongoDB();
-    const car = await CarModel.findById(id);
+    const car = await CarModel.findById(new ObjectId(carId));
 
     if (!car) {
       return NextResponse.json({ message: "Car not found." }, { status: 404 });
