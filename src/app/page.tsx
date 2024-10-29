@@ -18,7 +18,7 @@ export default function Home() {
               <div className="col-span-12 md:col-span-7 h-full flex items-center">
                 <div className="w-full text-center md:text-left">
                   <h1 className="font-sans font-light text-4xl md:text-5xl lg:text-7xl leading-none text-muted-800 dark:text-white">
-                    Elevate Your Drive,<br/> Elevate Your Lifestyle
+                    Elevate Your Drive,<br /> Elevate Your Lifestyle
                   </h1>
                   <p className="font-sans text-base md:text-lg text-muted-500 dark:text-white my-4 mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ex ea
@@ -41,7 +41,7 @@ export default function Home() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
                  md:w-72 md:h-72  w-48 h-48 rounded-full bg-gray-300 dark:bg-gray-800 z-10 scale-150"></div>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </section>
@@ -81,7 +81,8 @@ export default function Home() {
       </div>
 
       {/* Inventory List Section */}
-      <InventoryList />
+      <InventoryList isHome={true} />
+
 
       {/* Our Brand Section */}
       <div className="bg-white dark:bg-gray-900 overflow-hidden" id="brand">

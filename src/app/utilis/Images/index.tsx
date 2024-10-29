@@ -25,15 +25,6 @@ import CellImg from './cell-img1.jpg'
 import BuyImg from './buy-img1.jpg'
 
 
-import Image1 from './01.jpg';
-import Image2 from './2.webp';
-import Image3 from './03.jpg';
-import Image4 from './03.jpg';
-import Image5 from './1.webp';
-import Image6 from './2.webp';
-import Image7 from './3.webp';
-import Image8 from './1.webp';
-
 export {LogoImg};
-export { Hero, AboutImg, CellImg, BuyImg, Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8 };
+export { Hero, AboutImg, CellImg, BuyImg };
 export { Audi, BMW, Hyundai,LandRover,Mercedes, Skoda,Toyota,Nissan, Mahindra, Kia, Honda, Tata, Renault, MG, Suzuki };

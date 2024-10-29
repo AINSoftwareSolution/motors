@@ -16,14 +16,6 @@ import {
   Suzuki,
   CellImg,
   BuyImg,
-  Image1,
-  Image2,
-  Image3,
-  Image4,
-  Image5,
-  Image6,
-  Image7,
-  Image8,
 } from "./Images";
 // Services
 import { FaCar } from "react-icons/fa";
@@ -133,24 +125,8 @@ export const CarBrands = [
   },
 ];
 
- // ad related section
- export const Ads = [
-    {
-      src: Suzuki,
-      title: "Suzuki",
-      link: "/suzuki",
-    },
-    {
-      src: Kia,
-      title: "Kia",
-      link: "/kia",
-    },
-    {
-      src: Honda,
-      title: "Honda",
-      link: "/honda",
-    },
- ];
+
+ 
 
 // Buy And Cell
 export const infoContent = [
@@ -210,157 +186,7 @@ export interface ButtonData {
   link: string;
 }
 
-// inventry
-export const inventoryItems = [
-  {
-    id: 1,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image1,
-  },
-  {
-    id: 2,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image2,
-  },
-  {
-    id: 3,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image3,
-  },
-  {
-    id: 4,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image4,
-  },
-  {
-    id: 5,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image5,
-  },
-  {
-    id: 6,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image6,
-  },
-  {
-    id: 7,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image7,
-  },
-  {
-    id: 8,
-    title: "Car Name 2016",
-    price: "$69,900",
-    location: "Atlanta, GA",
-    imgSrc: Image8,
-  },
-];
 
-export const images = [
-  { src: Image1, alt: "" },
-  { src: Image2, alt: "" },
-  { src: Image3, alt: "" },
-  { src: Image4, alt: "" },
-  { src: Image5, alt: "" },
-];
-
-// features
-export const features = [
-  { id: 1, text: "Price", price: "$9000", time: "07:30PM", location: "Pune" },
-];
-
-/// carfeatures
-
-export const carFeatures = [
-  { text: "ABS" },
-  { text: "AM/FM Radio" },
-  { text: "Air Bags" },
-  { text: "Air Conditioning" },
-  { text: "Alloy Rims" },
-  { text: "CD Player" },
-  { text: "Cassette Player" },
-  { text: "Cruise Control" },
-  { text: "DVD Player" },
-  { text: "Immobilizer Key" },
-  { text: "Keyless Entry" },
-  { text: "Power Locks" },
-  { text: "Power Mirrors" },
-  { text: "Power Steering" },
-  { text: "Power Windows" },
-];
-
-// About this car
-export const aboutcar = [
-  { text: "Registered City", location: "New York" },
-  { text: "Color", location: "Pearl White" },
-  { text: "Assembly", location: "Imported" },
-  { text: "Engine Capacity", location: "1800 cc" },
-  { text: "Body Type", location: "Mini Van" },
-  { text: "Last Updated", location: "Aug 24, 2017" },
-  { text: "Ad Ref #", location: "2043936" },
-  { text: "Model", location: "2017" },
-  { text: "Millage", location: "165,000 km" },
-  { text: "Fuel", location: "Petrol" },
-  { text: "Transmission", location: "Automatic" },
-];
-
-// Related ads
-
-export const relatedAds = [
-  {
-    title: "Sue gate F 1.0 for Sale",
-    year: 2014,
-    mileage: "38,000 km",
-    location: "New York",
-    price: "$456.00",
-    fuelType: "Petrol",
-    engine: "1300 cc",
-    transmission: "Automatic",
-    lastUpdated: "1 day ago",
-    imageSrc: "/images/cars/04.jpg", // Correct path for Next.js static images
-    detailsUrl: "/detail.html",
-  },
-  {
-    title: "Sue gate F 1.0 for Sale",
-    year: 2014,
-    mileage: "38,000 km",
-    location: "New York",
-    price: "$456.00",
-    fuelType: "Petrol",
-    engine: "1300 cc",
-    transmission: "Automatic",
-    lastUpdated: "1 day ago",
-    imageSrc: "/images/cars/05.jpg",
-    detailsUrl: "/detail.html",
-  },
-  {
-    title: "Sue gate F 1.0 for Sale",
-    year: 2014,
-    mileage: "38,000 km",
-    location: "New York",
-    price: "$456.00",
-    fuelType: "Petrol",
-    engine: "1300 cc",
-    transmission: "Automatic",
-    lastUpdated: "1 day ago",
-    imageSrc: "/images/cars/06.jpg",
-    detailsUrl: "/detail.html",
-  },
-];
 
 // stay safe
 export const staySafe = [

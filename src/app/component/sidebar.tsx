@@ -59,7 +59,7 @@ const Sidebar = () => {
                                 </svg>
                             </button>
                             <Link href="/" className="flex ms-2 md:me-24" target="_blank">
-                                <Image src={LogoImg} className="w-28 h-auto object-contain" alt="Daulat Cars Logo" />
+                                <Image src={LogoImg} className="w-28 h-auto" alt="Daulat Cars Logo" />
                             </Link>
                         </div>
                         <div className="flex items-center">
