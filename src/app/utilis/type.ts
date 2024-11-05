@@ -10,11 +10,11 @@ export interface CarFormData {
     engineCapacity: string;
     bodyType: string;
     adsRef: string;
-    features: string[]; // Assuming features is an array of strings
+    features: string[]; 
     sellerContact: string;
-    images: string[]; // Assuming images is an array of strings (URLs)
+    images: string[]; 
     description: string;
     transmission: string;
     fuelType: string;
-    lastUpdated: string; // Consider using Date if needed
+    lastUpdated: string; 
   }

@@ -1,7 +1,6 @@
-"use client"
-import { CardHeader } from '@/app/component';
+"use client";
 import React, { useEffect, useState } from 'react';
-import { IoPersonOutline } from 'react-icons/io5';
+import { IoCarSportOutline,} from 'react-icons/io5';
 
 interface User {
   _id: any;
@@ -34,7 +33,6 @@ const UserManagement: React.FC = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
-
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -96,32 +94,37 @@ const UserManagement: React.FC = () => {
 
   return (
     <div>
-      <CardHeader title='User Details' icon={<IoPersonOutline />} />
+      <div className="rounded bg-gray-50 dark:bg-gray-700 p-6 my-2 text-lg font-bold flex text-gray-900 
+      dark:text-white gap-x-2">
+        <IoCarSportOutline fontWeight={900} fontSize={25} />
+        <h4 className='text-gray-900 dark:text-white'> Add Car Details</h4>
+      </div>
       <div className="rounded bg-gray-50 dark:bg-gray-800 p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Email <span className="text-red-500">*</span></label>
+                Email <span className="text-red-500">*</span>
+              </label>
               <input id="email" name="email" type="text" required onChange={handleInputChange} value={formData?.email}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
             </div>
             <div>
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Password <span className="text-red-500">*</span></label>
+                Password <span className="text-red-500">*</span>
+              </label>
               <input id="password" name="password" required onChange={handleInputChange} value={formData.password}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
             </div>
-            <div>
-              <label className="block mb-6 text-sm font-medium text-gray-900 dark:text-white"></label>
+            <div className="flex items-end">
               <button type="submit" className='px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm
-             hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:bg-blue-300
-              disabled:cursor-not-allowed w-full'
-              >Add User</button>
+                hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:bg-blue-300
+                disabled:cursor-not-allowed w-full'>
+                Add User
+              </button>
             </div>
           </div>
         </form>
-
 
         <div className="rounded bg-gray-50 dark:bg-gray-700 p-6 my-2 text-lg font-bold text-gray-900 
           dark:text-white gap-x-2">
@@ -141,5 +144,5 @@ const UserManagement: React.FC = () => {
     </div>
   );
 };
-
+   
 export default UserManagement;
