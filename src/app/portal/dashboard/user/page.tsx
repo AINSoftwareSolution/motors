@@ -1,145 +1,111 @@
 "use client";
-import { CardHeader } from '@/app/component';
-import React, { useEffect, useState } from 'react';
-import { IoCarSportOutline,} from 'react-icons/io5';
+import React, { useState, useEffect } from "react";
+import { CardHeader, Loader } from "@/app/component";
+import { IoPersonOutline } from "react-icons/io5";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
-interface User {
-  _id: any;
+interface Contact {
+  id: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  password: string; // In a real application, avoid storing passwords directly
+  contact: string;
 }
 
-const UserManagement: React.FC = () => {
-  const [formData, setFormData] = useState<{ email: string; password: string }>({
-    email: '',
-    password: '',
-  });
-  const [users, setUsers] = useState<User[]>([]);
+const ContactPage = () => {
+  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  // Fetch users from the API
-  const fetchUsers = async () => {
+  // Fetch contacts from the API
+  const fetchContacts = async () => {
+    setLoading(true);
     try {
-      const response = await fetch('/api/user/register'); // Replace with your API endpoint
+      const response = await fetch("/api/contact"); 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      setUsers(data);
-    } catch (error) {
-      console.error('Error fetching users:', error);
+      setContacts(data);
+    } catch (err) {
+      console.error("Error fetching contacts:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Fetch users when the component mounts
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Add user to the API
+  // Function to delete a contact by ID
+  const handleDeleteContact = async (id: string) => {
     try {
-      const response = await fetch('/api/user/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password, // Do not store passwords like this in a real app
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to add user');
-      }
-
-      const newUser = await response.json();
-      console.log(newUser.user)
-      // Update users list with the new user
-      setUsers([...users, newUser.user]);
-      setFormData({ email: '', password: '' }); // Clear form
-    } catch (error) {
-      console.error('Error adding user:', error);
-    }
-  };
-
-  const handleDeleteUser = async (id: number) => {
-    try {
-      const response = await fetch(`/api/user/register`, {
+      const response = await fetch(`/api/contact/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          _id: id // Do not store passwords like this in a real app
+          id: id, 
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to delete user');
+        throw new Error('Failed to delete contact');
       }
 
-      // Remove user from the state
-      setUsers(users.filter((user) => user._id !== id));
+      // Remove the deleted contact from the state
+      setContacts(contacts.filter((contact) => contact.id !== id));
     } catch (error) {
-      console.error('Error deleting user:', error);
+      console.error('Error deleting contact:', error);
     }
   };
 
+  useEffect(() => {
+    fetchContacts();
+  }, []);
+
   return (
     <div>
-      <CardHeader title='User Details' icon={<IoCarSportOutline />}  />
-      <div className="rounded bg-gray-50 dark:bg-gray-800 p-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input id="email" name="email" type="text" required onChange={handleInputChange} value={formData?.email}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-            </div>
-            <div>
-              <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Password <span className="text-red-500">*</span>
-              </label>
-              <input id="password" name="password" required onChange={handleInputChange} value={formData.password}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-            </div>
-            <div className="flex items-end">
-              <button type="submit" className='px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-sm
-                hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:bg-blue-300
-                disabled:cursor-not-allowed w-full'>
-                Add User
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <div className="rounded bg-gray-50 dark:bg-gray-700 p-6 my-2 text-lg font-bold text-gray-900 
-          dark:text-white gap-x-2">
-          <h3>User List</h3>
-          <ul>
-            {users.map((user) => (
-              <li key={user._id}>
-                {user.email}
-                <button onClick={() => handleDeleteUser(user._id)} style={{ marginLeft: '10px', color: 'red' }}>
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <CardHeader
+        title="Contact Details"
+        icon={<IoPersonOutline />}
+        button="Add Contact"
+        link="/portal/dashboard/contact/addContact"
+      />
+      <div className="container mx-auto py-6">
+        {loading ? (
+          <Loader />
+        ) : (
+          <table className="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700">
+            <thead>
+              <tr>
+                <th className="py-2 px-4 text-left border-b text-gray-900 dark:text-white dark:border-gray-600">First Name</th>
+                <th className="py-2 px-4 text-left border-b text-gray-900 dark:text-white dark:border-gray-600">Last Name</th>
+                <th className="py-2 px-4 text-left border-b text-gray-900 dark:text-white dark:border-gray-600">Email</th>
+                <th className="py-2 px-4 text-left border-b text-gray-900 dark:text-white dark:border-gray-600">Phone</th>
+                <th className="py-2 px-4 text-left border-b text-gray-900 dark:text-white dark:border-gray-600">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {contacts.map((contact) => (
+                <tr key={contact.id} className="border-b dark:border-gray-600 text-gray-900 dark:text-white">
+                  <td className="py-2 px-4">{contact.firstName}</td>
+                  <td className="py-2 px-4">{contact.lastName}</td>
+                  <td className="py-2 px-4">{contact.email}</td>
+                  <td className="py-2 px-4">{contact.contact}</td>
+                  <td className="py-2 px-4 flex space-x-4">
+                    <button
+                      className="text-red-500 hover:text-red-700"
+                      onClick={() => handleDeleteContact(contact.id)}
+                    >
+                      <RiDeleteBin6Line />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
 };
-   
-export default UserManagement;
+
+export default ContactPage;
