@@ -1,5 +1,5 @@
 "use client"
-import { carIntialData, carMakes } from '@/app/utilis/data'
+import { CarBrands, carIntialData, carMakes } from '@/app/utilis/data'
 import { CarFormData } from '@/app/utilis/type'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -89,9 +89,9 @@ const Updatecar= () => {
               <select id="make" name="make" required onChange={handleInputChange} value={formData?.make}
                 className="bg-gray-50  border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="">Select Make</option>
-                {carMakes?.map((make:string) => (
-                  <option key={make} value={make}>
-                    {make}
+                {CarBrands?.map((make:any) => (
+                  <option key={make.name} value={make.name}>
+                    {make.name}
                   </option>
                 ))}
               </select>

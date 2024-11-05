@@ -114,9 +114,9 @@ export default function Home() {
                 <h3 className="mt-2 font-bold text-md sm:text-lg text-black">
                   {brand.name}
                 </h3>
-                <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                {/* <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                   {brand.p}
-                </p>
+                </p> */}
               </div>
             ))}
           </div>

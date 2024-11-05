@@ -35,7 +35,7 @@ const Login = () => {
                 localStorage.setItem('token' , data.token)
                 setEmail('')
                 setPassword('')
-                router.push('/portal/dashboard')
+                router.push('/portal/dashboard/car')
             } else {
                 alert('Login Failed. Try Again!')
                 console.log('Login failed');
