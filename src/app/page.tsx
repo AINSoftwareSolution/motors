@@ -114,16 +114,16 @@ export default function Home() {
                 <h3 className="mt-2 font-bold text-md sm:text-lg text-black">
                   {brand.name}
                 </h3>
-                {/* <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                  {brand.p}
-                </p> */}
+                <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                  {brand.alt}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Buy Cell Section */}
+      {/* Buy Sell Section */}
       <div className="bg-white dark:bg-gray-900 overflow-hidden">
         <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
