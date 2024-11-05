@@ -39,8 +39,6 @@ export async function GET() {
 export async function DELETE(request: Request) {
   const { _id } = await request.json(); // Expect the id to be passed in the body
 
-
-
   if (!_id) {
     return NextResponse.json(
       { message: 'User ID is required' },

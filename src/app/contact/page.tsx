@@ -6,9 +6,10 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import Link from "next/link";
 import { Button } from "../component";
+import { ContactTypes } from "../utilis/type";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactTypes>({
     firstName: "",
     lastName: "",
     contact: "",

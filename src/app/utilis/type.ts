@@ -1,4 +1,5 @@
 export interface CarFormData {
+    _id?: string | null | undefined;
     make: string;
     model: string;
     year: string;
@@ -18,3 +19,14 @@ export interface CarFormData {
     fuelType: string;
     lastUpdated: string; 
   }
+
+  // Define a type for your contact data to ensure TypeScript recognizes the fields
+export interface ContactTypes {
+  _id?: string;
+  id?: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  contact: string;
+  message:string;
+}
