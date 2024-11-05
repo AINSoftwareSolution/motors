@@ -34,3 +34,41 @@ export async function GET() {
     );
   }
 }
+
+// DELETE: Remove a user by ID
+export async function DELETE(request: Request) {
+  const { _id } = await request.json(); // Expect the id to be passed in the body
+
+
+
+  if (!_id) {
+    return NextResponse.json(
+      { message: 'User ID is required' },
+      { status: 400 }
+    );
+  }
+
+  try {
+    await connectMongoDB();
+    
+    const user = await ContactModal.findById(_id);
+    if (!user) {
+      return NextResponse.json(
+        { message: 'User not found' },
+        { status: 404 }
+      );
+    }
+
+    await ContactModal.findByIdAndDelete(_id);
+
+    return NextResponse.json(
+      { message: 'User deleted successfully' },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    return NextResponse.json(
+      { message: `An error occurred during deletion: ${error.message}` },
+      { status: 500 }
+    );
+  }
+}
