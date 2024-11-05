@@ -7,7 +7,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { FaPrint } from "react-icons/fa";
-import { staySafe,} from "../../utilis/data";
+import { staySafe, } from "../../utilis/data";
 import { useParams } from "next/navigation";
 import { Loader } from "@/app/component";
 
@@ -16,6 +16,7 @@ const CarDetails = () => {
   const [inventoryItem, setInventoryItem] = useState<any>({});
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [relatedItem, SetRealtedItem] = useState([])
 
 
 
@@ -27,7 +28,6 @@ const CarDetails = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(data)
         setInventoryItem(data);
       } catch (err: any) {
       } finally {
@@ -37,6 +37,30 @@ const CarDetails = () => {
 
     fetchInventoryItems();
   }, []);
+
+
+  useEffect(() => {
+    const fetchRelatedItems = async () => {
+      try {
+        const response = await fetch(`/api/car/related/${inventoryItem.make}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        if (response.status == 200) {
+          const data = await response.json();
+          SetRealtedItem(data);
+        }
+
+      } catch (err: any) {
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRelatedItems();
+
+  }, [inventoryItem])
 
   if (loading) {
     return <Loader />
@@ -50,7 +74,6 @@ const CarDetails = () => {
 
   const validImages = inventoryItem?.images?.filter((image: any): image is any => image !== null) || [];
 
-  console.log('v' , validImages)
 
   return (
     <>
@@ -86,7 +109,7 @@ const CarDetails = () => {
                           alt={inventoryItem?.model}
                           layout="fill"
                           className="w-full"
-                          
+
                         />
                       </li>
                     ))}
@@ -129,100 +152,105 @@ const CarDetails = () => {
                 </div>
 
                 {/* Related Ads */}
+                {
 
-                <div className="relatedJobs mt-16 mb-10">
-                  <h3 className="text-2xl font-semibold mb-4">Related Ads</h3>
-                  {/* <ul className="space-y-3">
-                    {relatedAds.map((ad, index) => (
-                      <li
-                        key={index}
-                        className="bg-white shadow rounded-lg p-4"
-                      >
-                        <div className="flex flex-col md:flex-row">
-                          {/* Ad Image 
-                          <div className="w-full md:w-20 mb-2 md:mb-0">
-                            <div className="adimg">
-                              <Image
-                                src={ad.imageSrc}
-                                alt={ad.title}
-                                className="rounded-lg w-full h-auto object-cover"
-                                width={300}
-                                height={200}
-                              />
+
+                  relatedItem.length &&
+                  <div className="relatedJobs mt-16 mb-10">
+                    <h3 className="text-2xl font-semibold mb-4">Related Ads</h3>
+                    <ul className="space-y-3">
+                      {relatedItem?.map((ad: any, index: number) => (
+                        <li
+                          key={index}
+                          className="bg-white shadow rounded-lg p-4"
+                        >
+                          <div className="flex flex-col md:flex-row">
+                            {/* {/* {/* Ad Image   */}
+                            <div className="w-full md:w-20 mb-2 md:mb-0">
+                              <div className="adimg">
+                                <Image
+                                  src={ad?.images[0]}
+                                  alt={ad.model}
+                                  className="rounded-lg w-full h-auto object-cover"
+                                  width={300}
+                                  height={200}
+                                />
+                              </div>
                             </div>
-                          </div>
 
-                          {/* Ad Info 
-                          <div className="w-full md:w-3/2">
-                            <div className="jobinfo">
-                              <div className="flex flex-col md:flex-row">
-                                <div className="w-full md:w-2/3 ">
-                                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                                    <Link href={ad.detailsUrl}>{ad.title}</Link>
-                                  </h3>
-                                  <div className="location text-gray-500 mt-2">
-                                    <i
-                                      className="fa fa-calendar"
-                                      aria-hidden="true"
-                                    ></i>
-                                    <span>{ad.year}</span>
-                                  </div>
-                                  <div className="location text-gray-500 mt-2">
-                                    <i
-                                      className="fa fa-tachometer"
-                                      aria-hidden="true"
-                                    ></i>
-                                    <span>{ad.mileage}</span>
-                                  </div>
-                                  <div className="location text-gray-500 mt-2">
-                                    <i
-                                      className="fa fa-map-marker"
-                                      aria-hidden="true"
-                                    ></i>
-                                    <span>{ad.location}</span>
-                                  </div>
-                                  <div className="flex flex-wrap mt-4">
-                                    <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2 ">
-                                      {ad.fuelType}
-                                    </span>
-                                    <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2">
-                                      {ad.engine}
-                                    </span>
-                                    <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2">
-                                      {ad.transmission}
-                                    </span>
-                                  </div>
-                                  <div className="date text-gray-400 text-sm mt-4">
-                                    Last Updated: {ad.lastUpdated}
-                                  </div>
-                                </div>
-                                {/* Ad Price 
-                                <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 ">
-                                  <div className="adprice text-2xl font-bold ">
-                                    {ad.price}
-                                  </div>
-                                  <div className="listbtn mt-4">
-                                    <Link
-                                      href={ad.detailsUrl}
-                                      className="text-blue-500 hover:text-blue-700 flex items-center justify-end"
-                                    >
-                                      View Details
+                            {/* // {/* {/* Ad Info  */}
+                            <div className="w-full md:w-3/2">
+                              <div className="jobinfo">
+                                <div className="flex flex-col md:flex-row">
+                                  <div className="w-full md:w-2/3 ">
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                      <Link href={`/inventory/${ad._id}`}>{ad.model}</Link>
+                                    </h3>
+                                    <div className="location text-gray-500 mt-2">
                                       <i
-                                        className="fa fa-arrow-circle-right ml-2"
+                                        className="fa fa-calendar"
                                         aria-hidden="true"
                                       ></i>
-                                    </Link>
+                                      <span>{ad.year}</span>
+                                    </div>
+                                    <div className="location text-gray-500 mt-2">
+                                      <i
+                                        className="fa fa-tachometer"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <span>{ad.mileage}</span>
+                                    </div>
+                                    <div className="location text-gray-500 mt-2">
+                                      <i
+                                        className="fa fa-map-marker"
+                                        aria-hidden="true"
+                                      ></i>
+                                      <span>{ad.city}</span>
+                                    </div>
+                                    <div className="flex flex-wrap mt-4">
+                                      <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2 ">
+                                        {ad.fuelType}
+                                      </span>
+                                      <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2">
+                                        {ad.engineCapacity}
+                                      </span>
+                                      <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2">
+                                        {ad.transmission}
+                                      </span>
+                                    </div>
+                                    <div className="date text-gray-400 text-sm mt-4">
+                                      Last Updated: {ad.lastUpdated}
+                                    </div>
+                                  </div>
+                                  {/* // {/* {/* Ad Price   */}
+                                  <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 ">
+                                    <div className="adprice text-2xl font-bold ">
+                                      {ad.price}
+                                    </div>
+                                    <div className="listbtn mt-4">
+                                      <Link
+                                        href={`/inventory/${ad._id}`}
+                                        className="text-blue-500 hover:text-blue-700 flex items-center justify-end"
+                                      >
+                                        View Details
+                                        <i
+                                          className="fa fa-arrow-circle-right ml-2"
+                                          aria-hidden="true"
+                                        ></i>
+                                      </Link>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul> */}
-                </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                }
               </div>
+
 
               {/* Right Section - Card with Features and Comments */}
               <div className="lg:col-span-5">
@@ -312,7 +340,7 @@ const CarDetails = () => {
                       <div>{inventoryItem?.fuelType}</div>
                     </li>
                     <li className="flex justify-between text-white text-md mb-2">
-                      <div>Transmission</div>                     
+                      <div>Transmission</div>
                       <div>{inventoryItem?.transmission}</div>
                     </li>
                   </ul>
