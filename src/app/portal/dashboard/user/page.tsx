@@ -1,4 +1,5 @@
 "use client";
+import { CardHeader } from '@/app/component';
 import React, { useEffect, useState } from 'react';
 import { IoCarSportOutline,} from 'react-icons/io5';
 
@@ -94,11 +95,7 @@ const UserManagement: React.FC = () => {
 
   return (
     <div>
-      <div className="rounded bg-gray-50 dark:bg-gray-700 p-6 my-2 text-lg font-bold flex text-gray-900 
-      dark:text-white gap-x-2">
-        <IoCarSportOutline fontWeight={900} fontSize={25} />
-        <h4 className='text-gray-900 dark:text-white'> Add Car Details</h4>
-      </div>
+      <CardHeader title='User Details' icon={<IoCarSportOutline />}  />
       <div className="rounded bg-gray-50 dark:bg-gray-800 p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

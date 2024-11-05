@@ -5,14 +5,12 @@ import React, { useEffect, useState } from 'react'
 import { CgMoon, CgSun } from 'react-icons/cg';
 import { LogoImg } from '../utilis/Images';
 import { useRouter } from 'next/navigation';
-import useToken from '../hooks/useToken';
 import { IoCarSportOutline, IoLogOutOutline, IoPersonOutline } from 'react-icons/io5';
 
 const Sidebar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(true);
     const router = useRouter()
-    const token = useToken()
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
