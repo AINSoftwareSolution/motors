@@ -18,3 +18,19 @@ export async function POST(request: Request) {
     );
   }
 }
+
+
+export async function GET() {
+  try {
+    await connectMongoDB();
+    const contact = await ContactModal.find();
+    return NextResponse.json(contact, { status: 200 });
+  } catch (error: any) {
+    return NextResponse.json(
+      {
+        message: `An error occurred while fetching user data: ${error.message}`,
+      },
+      { status: 500 }
+    );
+  }
+}
