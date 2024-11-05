@@ -162,16 +162,16 @@ const CarDetails = () => {
                       {relatedItem?.map((ad: any, index: number) => (
                         <li
                           key={index}
-                          className="bg-white shadow rounded-lg p-4"
+                          className="bg-gray-200 shadow rounded-lg p-4"
                         >
-                          <div className="flex flex-col md:flex-row">
+                          <div className="flex flex-col md:flex-row p-4">
                             {/* {/* {/* Ad Image   */}
-                            <div className="w-full md:w-20 mb-2 md:mb-0">
+                            <div className=" sm:w-30 mb-2 md:mb-0">
                               <div className="adimg">
                                 <Image
                                   src={ad?.images[0]}
                                   alt={ad.model}
-                                  className="rounded-lg w-full h-auto object-cover"
+                                  className="rounded-lg object-cover"
                                   width={300}
                                   height={200}
                                 />
@@ -181,33 +181,33 @@ const CarDetails = () => {
                             {/* // {/* {/* Ad Info  */}
                             <div className="w-full md:w-3/2">
                               <div className="jobinfo">
-                                <div className="flex flex-col md:flex-row">
+                                <div className="flex flex-col md:flex-row mx-8">
                                   <div className="w-full md:w-2/3 ">
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-900">
                                       <Link href={`/inventory/${ad._id}`}>{ad.model}</Link>
                                     </h3>
-                                    <div className="location text-gray-500 mt-2">
+                                    <div className="location text-gray-900 mt-2">
                                       <i
                                         className="fa fa-calendar"
                                         aria-hidden="true"
                                       ></i>
                                       <span>{ad.year}</span>
                                     </div>
-                                    <div className="location text-gray-500 mt-2">
+                                    <div className="location text-gray-900 mt-2">
                                       <i
                                         className="fa fa-tachometer"
                                         aria-hidden="true"
                                       ></i>
                                       <span>{ad.mileage}</span>
                                     </div>
-                                    <div className="location text-gray-500 mt-2">
+                                    <div className="location text-gray-900 mt-2">
                                       <i
                                         className="fa fa-map-marker"
                                         aria-hidden="true"
                                       ></i>
                                       <span>{ad.city}</span>
                                     </div>
-                                    <div className="flex flex-wrap mt-4">
+                                    <div className="flex flex-wrap mt-4 dark:text-gray-900">
                                       <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2 ">
                                         {ad.fuelType}
                                       </span>
@@ -218,12 +218,12 @@ const CarDetails = () => {
                                         {ad.transmission}
                                       </span>
                                     </div>
-                                    <div className="date text-gray-400 text-sm mt-4">
+                                    <div className="date text-gray-900 text-sm mt-4">
                                       Last Updated: {ad.lastUpdated}
                                     </div>
                                   </div>
                                   {/* // {/* {/* Ad Price   */}
-                                  <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 ">
+                                  <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 dark:text-gray-900 ">
                                     <div className="adprice text-2xl font-bold ">
                                       {ad.price}
                                     </div>
