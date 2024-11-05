@@ -1,5 +1,6 @@
 'use client'
-import { InventoryCard, Loader } from "@/app/component";
+import { Button, InventoryCard, Loader } from "@/app/component";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -30,25 +31,34 @@ const BrandCards = () => {
 
 
   if (loading) {
-    return  <Loader />
+    return <Loader />
   }
 
   return (
-    <div className="bg-gray-200 dark:bg-gray-900 overflow-hidden mt-12 py-12" >
+    <div className="bg-gray-200 dark:bg-gray-900 overflow-hidden" >
       <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4 text-center">
-        <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
-          Inventory
-        </h2>
-        <p className="mb-6 mt-4 text-gray-800 dark:text-gray-300 text-sm sm:text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 mb-4 overflow-hidden">
-          { inventoryItems.length ? inventoryItems?.map((item: any) => (
-            <InventoryCard key={item?.id} item={item} /> 
-          )) 
-        : <>No cars found for : {params?.name}</>
+        {
+          inventoryItems.length ?
+
+            <>
+              <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
+                Inventory
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-5 mb-4 overflow-hidden">
+                {inventoryItems?.map((item: any) => (
+                  <InventoryCard key={item?.id} item={item} />
+                ))
+                }
+              </div>
+            </> :
+            <div className="mt-12 py-12">
+              <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold my-5">
+              Sorry, we couldn&apos;t find any cars for {params.name}
+              </h2>
+              <Button title={"Discover More Brands"} link={"/#brand"} />
+
+            </div>
         }
-        </div>
       </div>
     </div>
   );

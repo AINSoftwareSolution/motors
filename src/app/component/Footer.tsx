@@ -14,9 +14,6 @@ const Footer = () => {
     <div className={`subscribe bg-gray-900 overflow-hidden border-t border-gray-700 ${useLocation() ? 'hidden' : ''}` }>
       <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4 rounded text-center overflow-hidden ">
         <h6 className="text-3xl font-bold my-4 text-white ">Submit Newsletters</h6>
-        <p className="text-gray-600 mb-4 text-center">
-          Sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr <br /> sed diam nonumy sanctus est Lorem ipsum dolor sit amet.
-        </p>
         <div className="flex justify-center mb-5">
           <div className="w-full md:w-2/5 flex mb-5">
             <input

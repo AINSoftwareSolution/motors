@@ -20,11 +20,11 @@ export default function Home() {
                   <h1 className="font-sans font-light text-4xl md:text-5xl lg:text-7xl leading-none text-muted-800 dark:text-white">
                     Elevate Your Drive,<br /> Elevate Your Lifestyle
                   </h1>
-                  <p className="font-sans text-base md:text-lg text-muted-500 dark:text-white my-4 mb-4">
+                  {/* <p className="font-sans text-base md:text-lg text-muted-500 dark:text-white my-4 mb-4">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ex ea
                     difficultate illae fallaciloquae, ut ait adipiscing elit.
-                  </p>
-                  <div className="flex  md:flex-row justify-center md:justify-start items-center gap-4 mb-4">
+                  </p> */}
+                  <div className=" mt-6 flex  md:flex-row justify-center md:justify-start items-center gap-4 mb-4">
                     <Button title={"New Cars"} link={"/inventory"} />
                     <Button title={"Our Brand"} link={"/#brand"} />
                   </div>
@@ -125,7 +125,7 @@ export default function Home() {
       <div className="bg-white dark:bg-gray-900 overflow-hidden">
         <div className="container inset-0 mx-auto px-2 py-8 lg:px-12 lg:py-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {infoContent.map((info, index) => (
+            {infoContent?.map((info, index) => (
               <div
                 key={info.id}
                 className="relative h-64 md:h-80 flex justify-center items-center rounded-lg overflow-hidden hover:scale-105 hover:shadow-2xl"
