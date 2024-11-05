@@ -9,7 +9,7 @@ import { MdMessage } from "react-icons/md";
 import { FaPrint } from "react-icons/fa";
 import { staySafe, } from "../../utilis/data";
 import { useParams } from "next/navigation";
-import { Loader } from "@/app/component";
+import { Button, Loader } from "@/app/component";
 
 const CarDetails = () => {
   const params = useParams()
@@ -153,8 +153,6 @@ const CarDetails = () => {
 
                 {/* Related Ads */}
                 {
-
-
                   relatedItem.length &&
                   <div className="relatedJobs mt-16 mb-10">
                     <h3 className="text-2xl font-semibold mb-4">Related Ads</h3>
@@ -162,9 +160,9 @@ const CarDetails = () => {
                       {relatedItem?.map((ad: any, index: number) => (
                         <li
                           key={index}
-                          className="bg-gray-200 shadow rounded-lg p-4"
+                          className="bg-white dark:bg-gray-800 shadow rounded-lg p-4"
                         >
-                          <div className="flex flex-col md:flex-row p-4">
+                          <Link  href={`/inventory/${ad._id}`} className="flex flex-col md:flex-row p-4">
                             {/* {/* {/* Ad Image   */}
                             <div className=" sm:w-30 mb-2 md:mb-0">
                               <div className="adimg">
@@ -182,32 +180,32 @@ const CarDetails = () => {
                             <div className="w-full md:w-3/2">
                               <div className="jobinfo">
                                 <div className="flex flex-col md:flex-row mx-8">
-                                  <div className="w-full md:w-2/3 ">
-                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-900">
+                                  <div className="w-full  ">
+                                    <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                                       <Link href={`/inventory/${ad._id}`}>{ad.model}</Link>
                                     </h3>
-                                    <div className="location text-gray-900 mt-2">
+                                    <div className="location text-gray-800 dark:text-white mt-2">
                                       <i
                                         className="fa fa-calendar"
                                         aria-hidden="true"
                                       ></i>
-                                      <span>{ad.year}</span>
+                                      <span> Year : {ad.year}</span>
                                     </div>
-                                    <div className="location text-gray-900 mt-2">
+                                    <div className="location text-gray-800 dark:text-white mt-2">
                                       <i
                                         className="fa fa-tachometer"
                                         aria-hidden="true"
                                       ></i>
-                                      <span>{ad.mileage}</span>
+                                      <span> Mileage : {ad.mileage}</span>
                                     </div>
-                                    <div className="location text-gray-900 mt-2">
+                                    <div className="location text-gray-800 dark:text-white mt-2">
                                       <i
                                         className="fa fa-map-marker"
                                         aria-hidden="true"
                                       ></i>
-                                      <span>{ad.city}</span>
+                                      <span>City: {ad.city}</span>
                                     </div>
-                                    <div className="flex flex-wrap mt-4 dark:text-gray-900">
+                                    <div className="flex flex-wrap mt-4 dark:text-gray-800 dark:text-white">
                                       <span className="vinfo bg-gray-100 px-2 py-1 rounded-full text-sm mr-2 ">
                                         {ad.fuelType}
                                       </span>
@@ -218,32 +216,14 @@ const CarDetails = () => {
                                         {ad.transmission}
                                       </span>
                                     </div>
-                                    <div className="date text-gray-900 text-sm mt-4">
-                                      Last Updated: {ad.lastUpdated}
-                                    </div>
-                                  </div>
-                                  {/* // {/* {/* Ad Price   */}
-                                  <div className="w-full md:w-1/3 text-right mt-4 md:mt-0 dark:text-gray-900 ">
-                                    <div className="adprice text-2xl font-bold ">
-                                      {ad.price}
-                                    </div>
-                                    <div className="listbtn mt-4">
-                                      <Link
-                                        href={`/inventory/${ad._id}`}
-                                        className="text-blue-500 hover:text-blue-700 flex items-center justify-end"
-                                      >
-                                        View Details
-                                        <i
-                                          className="fa fa-arrow-circle-right ml-2"
-                                          aria-hidden="true"
-                                        ></i>
-                                      </Link>
+                                    <div className="date text-gray-800 dark:text-white text-sm mt-4">
+                                      Last Updated: {new Date(ad?.lastUpdated).toLocaleDateString()}
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </li>
                       ))}
                     </ul>
