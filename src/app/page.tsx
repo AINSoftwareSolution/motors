@@ -41,7 +41,7 @@ export default function Home() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
                  md:w-72 md:h-72  w-48 h-48 rounded-full bg-gray-300 dark:bg-gray-800 z-10 scale-150"></div>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </section>
