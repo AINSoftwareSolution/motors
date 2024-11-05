@@ -25,7 +25,7 @@ export default function Home() {
                     difficultate illae fallaciloquae, ut ait adipiscing elit.
                   </p>
                   <div className="flex  md:flex-row justify-center md:justify-start items-center gap-4 mb-4">
-                    <Button title={"New Cars"} link={"/#inventory"} />
+                    <Button title={"New Cars"} link={"/inventory"} />
                     <Button title={"Our Brand"} link={"/#brand"} />
                   </div>
                 </div>
@@ -90,17 +90,16 @@ export default function Home() {
           <h2 className="text-black dark:text-white text-3xl sm:text-4xl font-bold mt-5">
             Vehicle Collections
           </h2>
-          <p className="mb-6 mt-4 text-gray-800 dark:text-gray-300 text-sm sm:text-base">
+          {/* <p className="mb-6 mt-4 text-gray-800 dark:text-gray-300 text-sm sm:text-base">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          </p>
+          </p> */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-5 mb-4">
             {CarBrands.map((brand, index) => (
-              <div
+              <Link href={`/inventory/client/${brand?.name}`}
                 key={index}
                 className="relative flex flex-col items-center justify-center group mt-7 mb-5 bg-white p-4 
                 rounded-md shadow-md transition-transform hover:scale-105"
               >
-                <Link href={brand.link}>
                   <div className="relative flex items-center justify-center">
                     <Image
                       src={brand.src}
@@ -110,14 +109,13 @@ export default function Home() {
                       height={100}
                     />
                   </div>
-                </Link>
                 <h3 className="mt-2 font-bold text-md sm:text-lg text-black">
                   {brand.name}
                 </h3>
                 <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                   {brand.alt}
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

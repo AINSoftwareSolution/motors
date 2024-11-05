@@ -153,8 +153,6 @@ const CarDetails = () => {
 
                 {/* Related Ads */}
                 {
-
-
                   relatedItem.length &&
                   <div className="relatedJobs mt-16 mb-10">
                     <h3 className="text-2xl font-semibold mb-4">Related Ads</h3>
